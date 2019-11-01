@@ -16,7 +16,7 @@ Getting real, useful data out of Tableau Server is difficult-more difficult than
 
 ### Compatibility
 
-Use [this chart](https://public.tableau.com/views/TableauServerInsightsCompatibilityMatrix/Sheet1?:display_count=y&publish=yes&:origin=viz_share_link) to determine what version of each data source you need, based on the version of Tableau Server that you are running.
+Use [this chart](https://public.tableau.com/views/TableauServerInsightsCompatibilityMatrix/CompatibilityMatrixDashboard?:display_count=y&publish=yes&:origin=viz_share_link&:toolbar=no&:tabs=no&:showShareOptions=no) to determine what version of each data source you need, based on the version of Tableau Server that you are running.
 
 
 ### Open in Tableau Desktop
