@@ -12,7 +12,7 @@ Getting real, useful data out of Tableau Server is difficult-more difficult than
 ### Prerequisites
 
 * Using these data sources requires that you have already [opened up access](https://help.tableau.com/current/server/en-us/perf_collect_server_repo.htm) to your PostgreSQL repository.
-* Each file is named for the minimum version of Tableau Server you must be running to make use of it. You'll need to ensure your Server is running at least the version indicated in the file name, and that you have a copy of Tableau Desktop to publish them with.
+* You must have the appropriate version of Tableau Desktop to open these files, according to the compatibility chart below.
 
 ### Compatibility
 
