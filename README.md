@@ -339,4 +339,4 @@ Documentation for these data sources exists in the first page of the workbook th
 
 ## Issues
 
-We prefer questions to be sent to the [Tableau Community site](https://community.tableau.com/community/forums/server-administration). However, if you are the technical type and have a detailed bug you want to file, or a feature you'd like to see, you can send us an [issue](https://github.com/tableau/community-tableau-server-insights) here on GitHub.
+We prefer questions to be sent to the [Tableau Community site](https://community.tableau.com/community/forums/server-administration). However, if you are the technical type and have a detailed bug you want to file, or a feature you'd like to see, you can send us an [issue](https://github.com/tableau/community-tableau-server-insights/issues) here on GitHub.
