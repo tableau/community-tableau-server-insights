@@ -305,7 +305,7 @@ Use this chart to determine what version of each data source you need, based on 
 |    TS Content             |    Full Extract                            |
 |    TS Events              |    Incremental Extract (on Event Id field) |
 |    TS Background Tasks    |    Live                                    |
-|    TS Users               |    Full                                    |
+|    TS Users               |    Full Extract                            |
 |    TS Web Requests        |    Incremental Extract (on Id field)       |
 |    TS Data Connections    |    Live                                    |
 
