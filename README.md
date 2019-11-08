@@ -16,7 +16,278 @@ Getting real, useful data out of Tableau Server is difficult-more difficult than
 
 ### Compatibility
 
-Use [this chart](https://public.tableau.com/views/TableauServerInsightsCompatibilityMatrix/CompatibilityMatrixDashboard?:display_count=y&publish=yes&:origin=viz_share_link&:toolbar=no&:tabs=no&:showShareOptions=no) to determine what version of each data source you need, based on the version of Tableau Server that you are running.
+Use this chart to determine what version of each data source you need, based on the version of Tableau Server that you are running. Click the link to go to the appropriate .twb file.
+
+<table border=0 cellpadding=0 cellspacing=0 width=1033980 style='border-collapse:
+ collapse;table-layout:fixed;width:775485pt'>
+ <col width=148 style='mso-width-source:userset;mso-width-alt:5412;width:111pt'>
+ <col width=68 span=10 style='mso-width-source:userset;mso-width-alt:2486;
+ width:51pt'>
+ <col width=64 span=16143 style='width:48pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=148 style='height:15.0pt;width:111pt'></td>
+  <td class=xl67 width=68 style='width:51pt'>10.2</td>
+  <td class=xl67 width=68 style='width:51pt'>10.3</td>
+  <td class=xl67 width=68 style='width:51pt'>10.4</td>
+  <td class=xl67 width=68 style='width:51pt'>10.5</td>
+  <td class=xl67 width=68 style='width:51pt'>2018.1</td>
+  <td class=xl67 width=68 style='width:51pt'>2018.2</td>
+  <td class=xl67 width=68 style='width:51pt'>2018.3</td>
+  <td class=xl67 width=68 style='width:51pt'>2019.1</td>
+  <td class=xl67 width=68 style='width:51pt'>2019.2</td>
+  <td class=xl67 width=68 style='width:51pt'>2019.3</td>
+ </tr>
+ 
+<tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 style='height:15.0pt'>ts_background_tasks</td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 style='height:15.0pt'>ts_content</td>
+  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</u></td>
+  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</u></td>
+  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</u></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 style='height:15.0pt'>ts_data_connections</td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 style='height:15.0pt'>ts_events</td>
+  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</u></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 style='height:15.0pt'>ts_users</td>
+  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
+  mso-ignore:visibility'>&nbsp;</u></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 style='height:15.0pt'>ts_web_requests</td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>01.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.01</span></a></td>
+ </tr>
+ <![endif]>
+</table>
 
 
 ### Open in Tableau Desktop
