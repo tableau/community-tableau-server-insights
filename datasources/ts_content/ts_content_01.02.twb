@@ -359,6 +359,7 @@
           <map key='[luid]' value='[users].[luid]' />
           <map key='[materialized_views_enabled]' value='[sites].[materialized_views_enabled]' />
           <map key='[materialized_views_mode]' value='[sites].[materialized_views_mode]' />
+          <map key='[metrics_enabled]' value='[sites].[metrics_enabled]' />
           <map key='[metrics_level]' value='[sites].[metrics_level]' />
           <map key='[mixed_content_enabled]' value='[sites].[mixed_content_enabled]' />
           <map key='[name (sites)]' value='[sites].[name]' />
@@ -367,6 +368,8 @@
           <map key='[named_sharing_enabled]' value='[sites].[named_sharing_enabled]' />
           <map key='[nonce]' value='[users].[nonce]' />
           <map key='[notification_enabled]' value='[sites].[notification_enabled]' />
+          <map key='[notify_site_admins_on_throttle]' value='[sites].[notify_site_admins_on_throttle]' />
+          <map key='[obfuscation_enabled]' value='[sites].[obfuscation_enabled]' />
           <map key='[owner_type]' value='[Data Connection Ids].[owner_type]' />
           <map key='[parent_project_id (Custom SQL Query)]' value='[Projects].[parent_project_id]' />
           <map key='[parent_project_name]' value='[Projects].[parent_project_name]' />
@@ -435,6 +438,7 @@
           <map key='[viz_in_tooltip_enabled]' value='[sites].[viz_in_tooltip_enabled]' />
           <map key='[viz_recs_enabled]' value='[sites].[viz_recs_enabled]' />
           <map key='[viz_recs_username_enabled]' value='[sites].[viz_recs_username_enabled]' />
+          <map key='[web_editing_enabled]' value='[sites].[web_editing_enabled]' />
           <map key='[web_extraction_enabled]' value='[sites].[web_extraction_enabled]' />
         </cols>
         <metadata-records>
@@ -3055,12 +3059,72 @@
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>metrics_enabled</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[metrics_enabled]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>metrics_enabled</remote-alias>
+            <ordinal>169</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>web_editing_enabled</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[web_editing_enabled]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>web_editing_enabled</remote-alias>
+            <ordinal>170</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>notify_site_admins_on_throttle</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[notify_site_admins_on_throttle]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>notify_site_admins_on_throttle</remote-alias>
+            <ordinal>171</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>obfuscation_enabled</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[obfuscation_enabled]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>obfuscation_enabled</remote-alias>
+            <ordinal>172</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>alert_count</remote-name>
             <remote-type>20</remote-type>
             <local-name>[alert_count]</local-name>
             <parent-name>[Alerts]</parent-name>
             <remote-alias>alert_count</remote-alias>
-            <ordinal>170</ordinal>
+            <ordinal>174</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>20</precision>
@@ -3076,7 +3140,7 @@
             <local-name>[alert_recipient_count]</local-name>
             <parent-name>[Alerts]</parent-name>
             <remote-alias>alert_recipient_count</remote-alias>
-            <ordinal>171</ordinal>
+            <ordinal>175</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>20</precision>
@@ -3092,7 +3156,7 @@
             <local-name>[item_id (Custom SQL Query)]</local-name>
             <parent-name>[Alerts]</parent-name>
             <remote-alias>item_id</remote-alias>
-            <ordinal>172</ordinal>
+            <ordinal>176</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -3108,7 +3172,7 @@
             <local-name>[item_type]</local-name>
             <parent-name>[Alerts]</parent-name>
             <remote-alias>item_type</remote-alias>
-            <ordinal>173</ordinal>
+            <ordinal>177</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -3126,7 +3190,7 @@
             <local-name>[id (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>175</ordinal>
+            <ordinal>179</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3142,7 +3206,7 @@
             <local-name>[name (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>176</ordinal>
+            <ordinal>180</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3160,7 +3224,7 @@
             <local-name>[email]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>email</remote-alias>
-            <ordinal>177</ordinal>
+            <ordinal>181</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3178,7 +3242,7 @@
             <local-name>[hashed_password]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>hashed_password</remote-alias>
-            <ordinal>178</ordinal>
+            <ordinal>182</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3196,7 +3260,7 @@
             <local-name>[salt]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>salt</remote-alias>
-            <ordinal>179</ordinal>
+            <ordinal>183</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3214,7 +3278,7 @@
             <local-name>[sys]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>sys</remote-alias>
-            <ordinal>180</ordinal>
+            <ordinal>184</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3229,7 +3293,7 @@
             <local-name>[keychain]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>keychain</remote-alias>
-            <ordinal>181</ordinal>
+            <ordinal>185</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -3247,7 +3311,7 @@
             <local-name>[domain_id]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>domain_id</remote-alias>
-            <ordinal>182</ordinal>
+            <ordinal>186</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3263,7 +3327,7 @@
             <local-name>[friendly_name]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>friendly_name</remote-alias>
-            <ordinal>183</ordinal>
+            <ordinal>187</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3281,7 +3345,7 @@
             <local-name>[custom_display_name]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>custom_display_name</remote-alias>
-            <ordinal>184</ordinal>
+            <ordinal>188</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3296,7 +3360,7 @@
             <local-name>[activation_code]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>activation_code</remote-alias>
-            <ordinal>185</ordinal>
+            <ordinal>189</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3314,7 +3378,7 @@
             <local-name>[activated_at]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>activated_at</remote-alias>
-            <ordinal>186</ordinal>
+            <ordinal>190</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3329,7 +3393,7 @@
             <local-name>[state]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>187</ordinal>
+            <ordinal>191</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3347,7 +3411,7 @@
             <local-name>[admin_level]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>admin_level</remote-alias>
-            <ordinal>188</ordinal>
+            <ordinal>192</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3363,7 +3427,7 @@
             <local-name>[created_at (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>189</ordinal>
+            <ordinal>193</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3378,7 +3442,7 @@
             <local-name>[updated_at (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>190</ordinal>
+            <ordinal>194</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3393,7 +3457,7 @@
             <local-name>[deleted_at]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>deleted_at</remote-alias>
-            <ordinal>191</ordinal>
+            <ordinal>195</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3408,7 +3472,7 @@
             <local-name>[auth_user_id]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>auth_user_id</remote-alias>
-            <ordinal>192</ordinal>
+            <ordinal>196</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3426,7 +3490,7 @@
             <local-name>[asset_key_id]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>asset_key_id</remote-alias>
-            <ordinal>193</ordinal>
+            <ordinal>197</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3442,7 +3506,7 @@
             <local-name>[lock_version (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>194</ordinal>
+            <ordinal>198</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3458,7 +3522,7 @@
             <local-name>[last_password_update]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>last_password_update</remote-alias>
-            <ordinal>195</ordinal>
+            <ordinal>199</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3473,7 +3537,7 @@
             <local-name>[force_password_update]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>force_password_update</remote-alias>
-            <ordinal>196</ordinal>
+            <ordinal>200</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3488,7 +3552,7 @@
             <local-name>[last_failed_login]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>last_failed_login</remote-alias>
-            <ordinal>197</ordinal>
+            <ordinal>201</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3503,7 +3567,7 @@
             <local-name>[failed_login_attempts]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>failed_login_attempts</remote-alias>
-            <ordinal>198</ordinal>
+            <ordinal>202</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3519,7 +3583,7 @@
             <local-name>[protected_password]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>protected_password</remote-alias>
-            <ordinal>199</ordinal>
+            <ordinal>203</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3537,7 +3601,7 @@
             <local-name>[protected_password_bad_format]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>protected_password_bad_format</remote-alias>
-            <ordinal>200</ordinal>
+            <ordinal>204</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3552,7 +3616,7 @@
             <local-name>[project_id (Custom SQL Query)]</local-name>
             <parent-name>[Project Leader Permissions]</parent-name>
             <remote-alias>project_id</remote-alias>
-            <ordinal>202</ordinal>
+            <ordinal>206</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -3568,7 +3632,7 @@
             <local-name>[project_leaders_string]</local-name>
             <parent-name>[Project Leader Permissions]</parent-name>
             <remote-alias>project_leaders_string</remote-alias>
-            <ordinal>203</ordinal>
+            <ordinal>207</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -3586,7 +3650,7 @@
             <local-name>[dummy_join_field]</local-name>
             <parent-name>[Server Admin Permissions]</parent-name>
             <remote-alias>dummy_join_field</remote-alias>
-            <ordinal>205</ordinal>
+            <ordinal>209</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -3602,7 +3666,7 @@
             <local-name>[server_admins_string]</local-name>
             <parent-name>[Server Admin Permissions]</parent-name>
             <remote-alias>server_admins_string</remote-alias>
-            <ordinal>206</ordinal>
+            <ordinal>210</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -3620,7 +3684,7 @@
             <local-name>[site_id (Custom SQL Query)]</local-name>
             <parent-name>[Site Admin Permissions]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>208</ordinal>
+            <ordinal>212</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3636,7 +3700,7 @@
             <local-name>[site_admins_string]</local-name>
             <parent-name>[Site Admin Permissions]</parent-name>
             <remote-alias>site_admins_string</remote-alias>
-            <ordinal>209</ordinal>
+            <ordinal>213</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4382,6 +4446,7 @@
       </column>
       <column datatype='boolean' hidden='true' name='[materialized_views_enabled]' role='dimension' type='nominal' />
       <column datatype='integer' hidden='true' name='[materialized_views_mode]' role='measure' type='quantitative' />
+      <column datatype='boolean' hidden='true' name='[metrics_enabled]' role='dimension' type='nominal' />
       <column caption='Metrics Level' datatype='integer' hidden='true' name='[metrics_level]' role='measure' type='quantitative' />
       <column datatype='boolean' hidden='true' name='[mixed_content_enabled]' role='dimension' type='nominal' />
       <column caption='Site Name' datatype='string' name='[name (sites)]' role='dimension' type='nominal'>
@@ -4408,6 +4473,8 @@
       <column datatype='boolean' hidden='true' name='[named_sharing_enabled]' role='dimension' type='nominal' />
       <column caption='Nonce' datatype='string' hidden='true' name='[nonce]' role='dimension' type='nominal' />
       <column caption='Notification Enabled' datatype='boolean' hidden='true' name='[notification_enabled]' role='dimension' type='nominal' />
+      <column datatype='boolean' hidden='true' name='[notify_site_admins_on_throttle]' role='dimension' type='nominal' />
+      <column datatype='boolean' hidden='true' name='[obfuscation_enabled]' role='dimension' type='nominal' />
       <column datatype='string' hidden='true' name='[owner_type]' role='dimension' type='nominal' />
       <column aggregation='Sum' caption='Parent Project Id' datatype='integer' name='[parent_project_id (Custom SQL Query)]' role='dimension' type='ordinal'>
         <desc>
@@ -4592,6 +4659,7 @@
       <column datatype='boolean' hidden='true' name='[viz_in_tooltip_enabled]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[viz_recs_enabled]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[viz_recs_username_enabled]' role='dimension' type='nominal' />
+      <column datatype='boolean' hidden='true' name='[web_editing_enabled]' role='dimension' type='nominal' />
       <column datatype='integer' hidden='true' name='[web_extraction_enabled]' role='measure' type='quantitative' />
       <folder name='Data Source' role='dimensions'>
         <folder-item name='[Datasource Certification Note]' type='field' />
@@ -4764,7 +4832,7 @@
         <folder-item name='[storage_limit]' type='field' />
         <folder-item name='[storage_quota]' type='field' />
       </folder>
-      <layout dim-ordering='alphabetic' dim-percentage='0.365696' measure-ordering='alphabetic' measure-percentage='0.495146' parameter-percentage='0.139159' show-structure='false' user-set-layout='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.365052' measure-ordering='alphabetic' measure-percentage='0.49654' parameter-percentage='0.138408' show-structure='false' user-set-layout='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
@@ -5425,7 +5493,7 @@
         <viewpoint name='Top Authors' />
         <viewpoint name='Your Content' />
       </viewpoints>
-      <active id='-1' />
+      <active id='4' />
     </window>
     <window class='worksheet' hidden='true' name='Published Content Summary' tab-color='#4f779a'>
       <cards>
@@ -5513,7 +5581,6 @@
         <edge name='right'>
           <strip size='200'>
             <card param='[postgres.42726.578910810182].[none:Type:nk]' type='filter' />
-            <card pane-specification-id='0' param='[postgres.42726.578910810182].[sum:Access Count Unique (Last 30 Days) (copy):qk]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -5537,5 +5604,7 @@
     </window>
   </windows>
   <thumbnails>
+    <thumbnail height='192' name='TS Content' width='192'>
+    </thumbnail>
   </thumbnails>
 </workbook>
