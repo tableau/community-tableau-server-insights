@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<!-- build 20191.19.1017.2120                               -->
-<workbook source-build='2019.1.9 (20191.19.1017.2120)' source-platform='win' version='18.1' xml:base='https://your-tableau-server' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<!-- build 20191.19.1110.1721                               -->
+<workbook source-build='2019.1.10 (20191.19.1110.1721)' source-platform='win' version='18.1' xml:base='https://your-tableau-server' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <SheetIdentifierTracking />
     <SortTagCleanup />
     <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
   </document-format-change-manifest>
   <repository-location id='TSDataConnections' path='/workbooks' revision='1.1' />
   <preferences>
@@ -204,7 +205,7 @@
                                         </expression>
                                       </clause>
                                       <relation connection='postgres.07d6zjy1870zhg13l0rfe1l6xn8f' name='data_connections' table='[public].[data_connections]' type='table' />
-                                      <relation connection='postgres.07d6zjy1870zhg13l0rfe1l6xn8f' name='Data Sources (Custom SQL)' type='text'>SELECT&#13;&#10;&#13;&#10;    -- All Datasources&#13;&#10;    d.id                                        AS &quot;Datasource ID&quot; ,&#13;&#10;    d.luid                                      AS &quot;Datasource LUID&quot; ,&#13;&#10;    d.name                                      AS &quot;Datasource Name&quot; ,&#13;&#10;    d.repository_url                            AS &quot;Datasource Repository URL&quot; ,&#13;&#10;    d.owner_id                                  AS &quot;Datasource Owner ID&quot; ,&#13;&#10;    d.project_id                                AS &quot;Datasource Project ID&quot; ,&#13;&#10;    d.site_id                                   AS &quot;Datasource Site ID&quot; ,&#13;&#10;    d.is_hierarchical                           AS &quot;Datasource Is Hierarchical&quot; ,&#13;&#10;    d.is_certified                              AS &quot;Datasource Is Certified&quot; ,&#13;&#10;    COALESCE(e_dc.has_extract,&#13;&#10;        d.data_engine_extracts)                 AS &quot;Datasource Has Extract&quot; ,&#13;&#10;    d.incrementable_extracts                    AS &quot;Datasource Incrementable Extracts&quot; ,&#13;&#10;    d.refreshable_extracts                      AS &quot;Datasource Refreshable Extracts&quot; ,&#13;&#10;    d.data_engine_extracts                      AS &quot;Datasource Data Engine Extracts&quot; ,&#13;&#10;    d.extracts_refreshed_at                     AS &quot;Datasource Extracts Refreshed At&quot; ,&#13;&#10;    d.db_class                                  AS &quot;Datasource DB Class&quot; ,&#13;&#10;    d.db_name                                   AS &quot;Datasource DB Name&quot; ,&#13;&#10;    d.table_name                                AS &quot;Datasource Table Name&quot; ,&#13;&#10;    CASE d.connectable&#13;&#10;    WHEN true THEN false&#13;&#10;    ELSE true&#13;&#10;    END                                         AS &quot;Is Embedded in Workbook&quot; ,&#13;&#10;    CASE &#13;&#10;        WHEN p_dc.dbclass = &apos;sqlproxy&apos; THEN true&#13;&#10;        ELSE false&#13;&#10;    END                                         AS &quot;References Published Data Source&quot; ,&#13;&#10;    d.parent_workbook_id                        AS &quot;Parent Workbook ID&quot; ,&#13;&#10;&#13;&#10;&#13;&#10;    -- &quot;Underlying&quot; Data Sources (e.g., if the data source in a Workbook points to a Tableau Server published datasource)&#13;&#10;    &#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.id&#13;&#10;        ELSE d.id&#13;&#10;    END                                         AS &quot;Datasource ID (underlying)&quot; , -- represents the underlying datasource id. If a workbook connects to a published datasource, use that ID rather than the datasource id referenced by the workbook.&#13;&#10;&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.data_engine_extracts&#13;&#10;        ELSE d.data_engine_extracts&#13;&#10;    END                                         AS &quot;Datasource Data Engine Extracts (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.refreshable_extracts&#13;&#10;        ELSE d.refreshable_extracts&#13;&#10;    END                                         AS &quot;Datasource Refreshable Extracts (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.incrementable_extracts&#13;&#10;        ELSE d.incrementable_extracts&#13;&#10;    END                                         AS &quot;Datasource Incrementable Extracts (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.extracts_refreshed_at&#13;&#10;        ELSE d.extracts_refreshed_at&#13;&#10;    END                                         AS &quot;Datasource Extracts Refreshed At (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.extracts_incremented_at&#13;&#10;        ELSE d.extracts_incremented_at&#13;&#10;    END                                         AS &quot;Datasource Extracts Incremented At (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.name&#13;&#10;        ELSE d.name&#13;&#10;    END                                         AS &quot;Datasource Name (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.owner_id&#13;&#10;        ELSE d.owner_id&#13;&#10;    END                                         AS &quot;Datasource Owner ID (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.project_id&#13;&#10;        ELSE d.project_id&#13;&#10;    END                                         AS &quot;Datasource Project ID (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.db_class&#13;&#10;        ELSE d.db_class&#13;&#10;    END                                         AS &quot;Datasource DB Class (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.db_name&#13;&#10;        ELSE d.db_name&#13;&#10;    END                                         AS &quot;Datasource DB Name (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.table_name&#13;&#10;        ELSE d.table_name&#13;&#10;    END                                         AS &quot;Datasource Table Name (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.is_hierarchical&#13;&#10;        ELSE d.is_hierarchical&#13;&#10;    END                                         AS &quot;Datasource Is Hierarchical (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.is_certified&#13;&#10;        ELSE d.is_certified&#13;&#10;    END                                         AS &quot;Datasource Is Certified (underlying)&quot; ,&#13;&#10;    p_ds.repository_url                         AS &quot;Datasource Repository URL (underlying)&quot;&#13;&#10;&#13;&#10;FROM datasources d  -- all datasources, published and embedded&#13;&#10;    LEFT JOIN &#13;&#10;        (&#13;&#10;         SELECT&#13;&#10;             datasource_id ,&#13;&#10;             has_extract&#13;&#10;         FROM data_connections  -- used to obtain extract information on first-level datasources (e_dc = embedded data connections)&#13;&#10;         GROUP BY&#13;&#10;             datasource_id ,&#13;&#10;             has_extract&#13;&#10;        ) as e_dc&#13;&#10;            ON d.id = e_dc.datasource_id&#13;&#10;    LEFT JOIN data_connections p_dc  -- used to obtain information on what datasources (in a workbook) are connecting to what published datasources&#13;&#10;        ON d.id = p_dc.datasource_id&#13;&#10;            AND p_dc.dbclass = &apos;sqlproxy&apos;&#13;&#10;    LEFT JOIN datasources p_ds  -- just the published &quot;conectable&quot; datasources for supplemental information&#13;&#10;        ON p_dc.dbname = p_ds.repository_url&#13;&#10;            AND p_ds.connectable = true</relation>
+                                      <relation connection='postgres.07d6zjy1870zhg13l0rfe1l6xn8f' name='Data Sources (Custom SQL)' type='text'>SELECT&#13;&#10;&#13;&#10;    -- All Datasources&#13;&#10;    d.id                                        AS &quot;Datasource ID&quot; ,&#13;&#10;    d.luid                                      AS &quot;Datasource LUID&quot; ,&#13;&#10;    d.name                                      AS &quot;Datasource Name&quot; ,&#13;&#10;    d.repository_url                            AS &quot;Datasource Repository URL&quot; ,&#13;&#10;    d.owner_id                                  AS &quot;Datasource Owner ID&quot; ,&#13;&#10;    d.project_id                                AS &quot;Datasource Project ID&quot; ,&#13;&#10;    d.site_id                                   AS &quot;Datasource Site ID&quot; ,&#13;&#10;    d.created_at                                AS &quot;Datasource Created At&quot; ,&#13;&#10;    d.updated_at                                AS &quot;Datasource Updated At&quot; ,&#13;&#10;    d.is_hierarchical                           AS &quot;Datasource Is Hierarchical&quot; ,&#13;&#10;    d.is_certified                              AS &quot;Datasource Is Certified&quot; ,&#13;&#10;    COALESCE(e_dc.has_extract,&#13;&#10;        d.data_engine_extracts)                 AS &quot;Datasource Has Extract&quot; ,&#13;&#10;    d.incrementable_extracts                    AS &quot;Datasource Incrementable Extracts&quot; ,&#13;&#10;    d.refreshable_extracts                      AS &quot;Datasource Refreshable Extracts&quot; ,&#13;&#10;    d.data_engine_extracts                      AS &quot;Datasource Data Engine Extracts&quot; ,&#13;&#10;    d.extracts_refreshed_at                     AS &quot;Datasource Extracts Refreshed At&quot; ,&#13;&#10;    d.db_class                                  AS &quot;Datasource DB Class&quot; ,&#13;&#10;    d.db_name                                   AS &quot;Datasource DB Name&quot; ,&#13;&#10;    d.table_name                                AS &quot;Datasource Table Name&quot; ,&#13;&#10;    CASE d.connectable&#13;&#10;    WHEN true THEN false&#13;&#10;    ELSE true&#13;&#10;    END                                         AS &quot;Is Embedded in Workbook&quot; ,&#13;&#10;    CASE &#13;&#10;        WHEN p_dc.dbclass = &apos;sqlproxy&apos; THEN true&#13;&#10;        ELSE false&#13;&#10;    END                                         AS &quot;References Published Data Source&quot; ,&#13;&#10;    d.parent_workbook_id                        AS &quot;Parent Workbook ID&quot; ,&#13;&#10;&#13;&#10;&#13;&#10;    -- &quot;Underlying&quot; Data Sources (e.g., if the data source in a Workbook points to a Tableau Server published datasource)&#13;&#10;    &#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.id&#13;&#10;        ELSE d.id&#13;&#10;    END                                         AS &quot;Datasource ID (underlying)&quot; , -- represents the underlying datasource id. If a workbook connects to a published datasource, use that ID rather than the datasource id referenced by the workbook.&#13;&#10;&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.data_engine_extracts&#13;&#10;        ELSE d.data_engine_extracts&#13;&#10;    END                                         AS &quot;Datasource Data Engine Extracts (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.refreshable_extracts&#13;&#10;        ELSE d.refreshable_extracts&#13;&#10;    END                                         AS &quot;Datasource Refreshable Extracts (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.incrementable_extracts&#13;&#10;        ELSE d.incrementable_extracts&#13;&#10;    END                                         AS &quot;Datasource Incrementable Extracts (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.extracts_refreshed_at&#13;&#10;        ELSE d.extracts_refreshed_at&#13;&#10;    END                                         AS &quot;Datasource Extracts Refreshed At (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.extracts_incremented_at&#13;&#10;        ELSE d.extracts_incremented_at&#13;&#10;    END                                         AS &quot;Datasource Extracts Incremented At (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.name&#13;&#10;        ELSE d.name&#13;&#10;    END                                         AS &quot;Datasource Name (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.owner_id&#13;&#10;        ELSE d.owner_id&#13;&#10;    END                                         AS &quot;Datasource Owner ID (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.project_id&#13;&#10;        ELSE d.project_id&#13;&#10;    END                                         AS &quot;Datasource Project ID (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.db_class&#13;&#10;        ELSE d.db_class&#13;&#10;    END                                         AS &quot;Datasource DB Class (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.db_name&#13;&#10;        ELSE d.db_name&#13;&#10;    END                                         AS &quot;Datasource DB Name (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.table_name&#13;&#10;        ELSE d.table_name&#13;&#10;    END                                         AS &quot;Datasource Table Name (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.is_hierarchical&#13;&#10;        ELSE d.is_hierarchical&#13;&#10;    END                                         AS &quot;Datasource Is Hierarchical (underlying)&quot; ,&#13;&#10;    CASE p_dc.dbclass&#13;&#10;        WHEN &apos;sqlproxy&apos; THEN p_ds.is_certified&#13;&#10;        ELSE d.is_certified&#13;&#10;    END                                         AS &quot;Datasource Is Certified (underlying)&quot; ,&#13;&#10;    p_ds.repository_url                         AS &quot;Datasource Repository URL (underlying)&quot;&#13;&#10;&#13;&#10;FROM datasources d  -- all datasources, published and embedded&#13;&#10;    LEFT JOIN &#13;&#10;        (&#13;&#10;         SELECT&#13;&#10;             datasource_id ,&#13;&#10;             has_extract&#13;&#10;         FROM data_connections  -- used to obtain extract information on first-level datasources (e_dc = embedded data connections)&#13;&#10;         GROUP BY&#13;&#10;             datasource_id ,&#13;&#10;             has_extract&#13;&#10;        ) as e_dc&#13;&#10;            ON d.id = e_dc.datasource_id&#13;&#10;    LEFT JOIN data_connections p_dc  -- used to obtain information on what datasources (in a workbook) are connecting to what published datasources&#13;&#10;        ON d.id = p_dc.datasource_id&#13;&#10;            AND p_dc.dbclass = &apos;sqlproxy&apos;&#13;&#10;    LEFT JOIN datasources p_ds  -- just the published &quot;conectable&quot; datasources for supplemental information&#13;&#10;        ON p_dc.dbname = p_ds.repository_url&#13;&#10;            AND p_ds.connectable = true</relation>
                                     </relation>
                                     <relation connection='postgres.07d6zjy1870zhg13l0rfe1l6xn8f' name='workbooks' table='[public].[workbooks]' type='table' />
                                   </relation>
@@ -235,6 +236,7 @@
           <relation connection='postgres.07d6zjy1870zhg13l0rfe1l6xn8f' name='Data Source Project Owner (system user)' table='[public].[system_users]' type='table' />
         </relation>
         <cols>
+          <map key='[Datasource Created At]' value='[Data Sources (Custom SQL)].[Datasource Created At]' />
           <map key='[Datasource DB Class (underlying)]' value='[Data Sources (Custom SQL)].[Datasource DB Class (underlying)]' />
           <map key='[Datasource DB Class]' value='[Data Sources (Custom SQL)].[Datasource DB Class]' />
           <map key='[Datasource DB Name (underlying)]' value='[Data Sources (Custom SQL)].[Datasource DB Name (underlying)]' />
@@ -267,6 +269,7 @@
           <map key='[Datasource Site ID]' value='[Data Sources (Custom SQL)].[Datasource Site ID]' />
           <map key='[Datasource Table Name (underlying)]' value='[Data Sources (Custom SQL)].[Datasource Table Name (underlying)]' />
           <map key='[Datasource Table Name]' value='[Data Sources (Custom SQL)].[Datasource Table Name]' />
+          <map key='[Datasource Updated At]' value='[Data Sources (Custom SQL)].[Datasource Updated At]' />
           <map key='[Is Embedded in Workbook]' value='[Data Sources (Custom SQL)].[Is Embedded in Workbook]' />
           <map key='[Parent Workbook ID]' value='[Data Sources (Custom SQL)].[Parent Workbook ID]' />
           <map key='[References Published Data Source]' value='[Data Sources (Custom SQL)].[References Published Data Source]' />
@@ -307,6 +310,8 @@
           <map key='[content_version_limit]' value='[sites].[content_version_limit]' />
           <map key='[controlled_permissions_enabled (projects)]' value='[Underlying Data Source Project].[controlled_permissions_enabled]' />
           <map key='[controlled_permissions_enabled]' value='[Data Source Project].[controlled_permissions_enabled]' />
+          <map key='[controlling_permissions_project_id (Underlying Data Source Project)]' value='[Underlying Data Source Project].[controlling_permissions_project_id]' />
+          <map key='[controlling_permissions_project_id]' value='[Data Source Project].[controlling_permissions_project_id]' />
           <map key='[created_at (projects) #1]' value='[Underlying Data Source Project].[created_at]' />
           <map key='[created_at (projects)]' value='[Data Source Project].[created_at]' />
           <map key='[created_at (sites)]' value='[sites].[created_at]' />
@@ -426,8 +431,10 @@
           <map key='[luid]' value='[data_connections].[luid]' />
           <map key='[materialized_views_enabled]' value='[sites].[materialized_views_enabled]' />
           <map key='[materialized_views_mode]' value='[sites].[materialized_views_mode]' />
+          <map key='[metrics_enabled]' value='[sites].[metrics_enabled]' />
           <map key='[metrics_level]' value='[sites].[metrics_level]' />
           <map key='[mixed_content_enabled]' value='[sites].[mixed_content_enabled]' />
+          <map key='[modified_by_user_id]' value='[workbooks].[modified_by_user_id]' />
           <map key='[name (Data Source Owner (_Users))]' value='[Data Source Owner (_Users)].[name]' />
           <map key='[name (Underlying Data Source Owner (_Users))]' value='[Underlying Data Source Owner (_Users)].[name]' />
           <map key='[name (projects) #1]' value='[Underlying Data Source Project].[name]' />
@@ -439,8 +446,12 @@
           <map key='[name (workbooks)]' value='[workbooks].[name]' />
           <map key='[name]' value='[data_connections].[name]' />
           <map key='[named_sharing_enabled]' value='[sites].[named_sharing_enabled]' />
+          <map key='[nested_projects_permissions_included (Underlying Data Source Project)]' value='[Underlying Data Source Project].[nested_projects_permissions_included]' />
+          <map key='[nested_projects_permissions_included]' value='[Data Source Project].[nested_projects_permissions_included]' />
           <map key='[nonce]' value='[Data Source Project Owner (user)].[nonce]' />
           <map key='[notification_enabled]' value='[sites].[notification_enabled]' />
+          <map key='[notify_site_admins_on_throttle]' value='[sites].[notify_site_admins_on_throttle]' />
+          <map key='[obfuscation_enabled]' value='[sites].[obfuscation_enabled]' />
           <map key='[owner_id (projects) #1]' value='[Underlying Data Source Project].[owner_id]' />
           <map key='[owner_id (projects)]' value='[Data Source Project].[owner_id]' />
           <map key='[owner_id (workbooks)]' value='[workbooks].[owner_id]' />
@@ -548,6 +559,7 @@
           <map key='[viz_in_tooltip_enabled]' value='[sites].[viz_in_tooltip_enabled]' />
           <map key='[viz_recs_enabled]' value='[sites].[viz_recs_enabled]' />
           <map key='[viz_recs_username_enabled]' value='[sites].[viz_recs_username_enabled]' />
+          <map key='[web_editing_enabled]' value='[sites].[web_editing_enabled]' />
           <map key='[web_extraction_enabled]' value='[sites].[web_extraction_enabled]' />
         </cols>
         <metadata-records>
@@ -1024,12 +1036,42 @@
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>Datasource Created At</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Datasource Created At]</local-name>
+            <parent-name>[Data Sources (Custom SQL)]</parent-name>
+            <remote-alias>Datasource Created At</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Datasource Updated At</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Datasource Updated At]</local-name>
+            <parent-name>[Data Sources (Custom SQL)]</parent-name>
+            <remote-alias>Datasource Updated At</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>Datasource Is Hierarchical</remote-name>
             <remote-type>11</remote-type>
             <local-name>[Datasource Is Hierarchical]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Is Hierarchical</remote-alias>
-            <ordinal>30</ordinal>
+            <ordinal>32</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1044,7 +1086,7 @@
             <local-name>[Datasource Is Certified]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Is Certified</remote-alias>
-            <ordinal>31</ordinal>
+            <ordinal>33</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1059,7 +1101,7 @@
             <local-name>[Datasource Has Extract]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Has Extract</remote-alias>
-            <ordinal>32</ordinal>
+            <ordinal>34</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1074,7 +1116,7 @@
             <local-name>[Datasource Incrementable Extracts]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Incrementable Extracts</remote-alias>
-            <ordinal>33</ordinal>
+            <ordinal>35</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1089,7 +1131,7 @@
             <local-name>[Datasource Refreshable Extracts]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Refreshable Extracts</remote-alias>
-            <ordinal>34</ordinal>
+            <ordinal>36</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1104,7 +1146,7 @@
             <local-name>[Datasource Data Engine Extracts]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Data Engine Extracts</remote-alias>
-            <ordinal>35</ordinal>
+            <ordinal>37</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1119,7 +1161,7 @@
             <local-name>[Datasource Extracts Refreshed At]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Extracts Refreshed At</remote-alias>
-            <ordinal>36</ordinal>
+            <ordinal>38</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -1134,7 +1176,7 @@
             <local-name>[Datasource DB Class]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource DB Class</remote-alias>
-            <ordinal>37</ordinal>
+            <ordinal>39</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1152,7 +1194,7 @@
             <local-name>[Datasource DB Name]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource DB Name</remote-alias>
-            <ordinal>38</ordinal>
+            <ordinal>40</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1170,7 +1212,7 @@
             <local-name>[Datasource Table Name]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Table Name</remote-alias>
-            <ordinal>39</ordinal>
+            <ordinal>41</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1188,7 +1230,7 @@
             <local-name>[Is Embedded in Workbook]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Is Embedded in Workbook</remote-alias>
-            <ordinal>40</ordinal>
+            <ordinal>42</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1203,7 +1245,7 @@
             <local-name>[References Published Data Source]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>References Published Data Source</remote-alias>
-            <ordinal>41</ordinal>
+            <ordinal>43</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1218,7 +1260,7 @@
             <local-name>[Parent Workbook ID]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Parent Workbook ID</remote-alias>
-            <ordinal>42</ordinal>
+            <ordinal>44</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1234,7 +1276,7 @@
             <local-name>[Datasource ID (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource ID (underlying)</remote-alias>
-            <ordinal>43</ordinal>
+            <ordinal>45</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -1250,7 +1292,7 @@
             <local-name>[Datasource Data Engine Extracts (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Data Engine Extracts (underlying)</remote-alias>
-            <ordinal>44</ordinal>
+            <ordinal>46</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1265,7 +1307,7 @@
             <local-name>[Datasource Refreshable Extracts (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Refreshable Extracts (underlying)</remote-alias>
-            <ordinal>45</ordinal>
+            <ordinal>47</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1280,7 +1322,7 @@
             <local-name>[Datasource Incrementable Extracts (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Incrementable Extracts (underlying)</remote-alias>
-            <ordinal>46</ordinal>
+            <ordinal>48</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1295,7 +1337,7 @@
             <local-name>[Datasource Extracts Refreshed At (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Extracts Refreshed At (underlying)</remote-alias>
-            <ordinal>47</ordinal>
+            <ordinal>49</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -1310,7 +1352,7 @@
             <local-name>[Datasource Extracts Incremented At (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Extracts Incremented At (underlying)</remote-alias>
-            <ordinal>48</ordinal>
+            <ordinal>50</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -1325,7 +1367,7 @@
             <local-name>[Datasource Name (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Name (underlying)</remote-alias>
-            <ordinal>49</ordinal>
+            <ordinal>51</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -1343,7 +1385,7 @@
             <local-name>[Datasource Owner ID (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Owner ID (underlying)</remote-alias>
-            <ordinal>50</ordinal>
+            <ordinal>52</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -1359,7 +1401,7 @@
             <local-name>[Datasource Project ID (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Project ID (underlying)</remote-alias>
-            <ordinal>51</ordinal>
+            <ordinal>53</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -1375,7 +1417,7 @@
             <local-name>[Datasource DB Class (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource DB Class (underlying)</remote-alias>
-            <ordinal>52</ordinal>
+            <ordinal>54</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1393,7 +1435,7 @@
             <local-name>[Datasource DB Name (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource DB Name (underlying)</remote-alias>
-            <ordinal>53</ordinal>
+            <ordinal>55</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1411,7 +1453,7 @@
             <local-name>[Datasource Table Name (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Table Name (underlying)</remote-alias>
-            <ordinal>54</ordinal>
+            <ordinal>56</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1429,7 +1471,7 @@
             <local-name>[Datasource Is Hierarchical (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Is Hierarchical (underlying)</remote-alias>
-            <ordinal>55</ordinal>
+            <ordinal>57</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1444,7 +1486,7 @@
             <local-name>[Datasource Is Certified (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Is Certified (underlying)</remote-alias>
-            <ordinal>56</ordinal>
+            <ordinal>58</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1459,7 +1501,7 @@
             <local-name>[Datasource Repository URL (underlying)]</local-name>
             <parent-name>[Data Sources (Custom SQL)]</parent-name>
             <remote-alias>Datasource Repository URL (underlying)</remote-alias>
-            <ordinal>57</ordinal>
+            <ordinal>59</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1477,7 +1519,7 @@
             <local-name>[id (workbooks)]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>59</ordinal>
+            <ordinal>61</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1493,7 +1535,7 @@
             <local-name>[name (workbooks)]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>60</ordinal>
+            <ordinal>62</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -1511,7 +1553,7 @@
             <local-name>[repository_url]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>repository_url</remote-alias>
-            <ordinal>61</ordinal>
+            <ordinal>63</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1529,7 +1571,7 @@
             <local-name>[description]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>description</remote-alias>
-            <ordinal>62</ordinal>
+            <ordinal>64</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1547,7 +1589,7 @@
             <local-name>[created_at (workbooks)]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>63</ordinal>
+            <ordinal>65</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -1562,7 +1604,7 @@
             <local-name>[updated_at (workbooks)]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>64</ordinal>
+            <ordinal>66</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -1577,7 +1619,7 @@
             <local-name>[owner_id (workbooks)]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>owner_id</remote-alias>
-            <ordinal>65</ordinal>
+            <ordinal>67</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1593,7 +1635,7 @@
             <local-name>[project_id]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>project_id</remote-alias>
-            <ordinal>66</ordinal>
+            <ordinal>68</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1609,7 +1651,7 @@
             <local-name>[view_count]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>view_count</remote-alias>
-            <ordinal>67</ordinal>
+            <ordinal>69</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1625,7 +1667,7 @@
             <local-name>[size]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>size</remote-alias>
-            <ordinal>68</ordinal>
+            <ordinal>70</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -1641,7 +1683,7 @@
             <local-name>[embedded]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>embedded</remote-alias>
-            <ordinal>69</ordinal>
+            <ordinal>71</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -1659,7 +1701,7 @@
             <local-name>[thumb_user]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>thumb_user</remote-alias>
-            <ordinal>70</ordinal>
+            <ordinal>72</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1675,7 +1717,7 @@
             <local-name>[refreshable_extracts]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>refreshable_extracts</remote-alias>
-            <ordinal>71</ordinal>
+            <ordinal>73</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1690,7 +1732,7 @@
             <local-name>[extracts_refreshed_at]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>extracts_refreshed_at</remote-alias>
-            <ordinal>72</ordinal>
+            <ordinal>74</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -1705,7 +1747,7 @@
             <local-name>[lock_version]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>73</ordinal>
+            <ordinal>75</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1721,7 +1763,7 @@
             <local-name>[state]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>74</ordinal>
+            <ordinal>76</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>32</width>
@@ -1739,7 +1781,7 @@
             <local-name>[version]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>version</remote-alias>
-            <ordinal>75</ordinal>
+            <ordinal>77</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -1757,7 +1799,7 @@
             <local-name>[checksum]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>checksum</remote-alias>
-            <ordinal>76</ordinal>
+            <ordinal>78</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -1775,7 +1817,7 @@
             <local-name>[display_tabs]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>display_tabs</remote-alias>
-            <ordinal>77</ordinal>
+            <ordinal>79</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1790,7 +1832,7 @@
             <local-name>[data_engine_extracts]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>data_engine_extracts</remote-alias>
-            <ordinal>78</ordinal>
+            <ordinal>80</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1805,7 +1847,7 @@
             <local-name>[incrementable_extracts]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>incrementable_extracts</remote-alias>
-            <ordinal>79</ordinal>
+            <ordinal>81</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1820,7 +1862,7 @@
             <local-name>[site_id (workbooks)]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>80</ordinal>
+            <ordinal>82</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1836,7 +1878,7 @@
             <local-name>[revision]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>revision</remote-alias>
-            <ordinal>81</ordinal>
+            <ordinal>83</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -1854,7 +1896,7 @@
             <local-name>[repository_data_id]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>repository_data_id</remote-alias>
-            <ordinal>82</ordinal>
+            <ordinal>84</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -1870,7 +1912,7 @@
             <local-name>[repository_extract_data_id]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>repository_extract_data_id</remote-alias>
-            <ordinal>83</ordinal>
+            <ordinal>85</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -1886,7 +1928,7 @@
             <local-name>[first_published_at]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>first_published_at</remote-alias>
-            <ordinal>84</ordinal>
+            <ordinal>86</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -1901,7 +1943,7 @@
             <local-name>[primary_content_url]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>primary_content_url</remote-alias>
-            <ordinal>85</ordinal>
+            <ordinal>87</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -1919,7 +1961,7 @@
             <local-name>[share_description]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>share_description</remote-alias>
-            <ordinal>86</ordinal>
+            <ordinal>88</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -1937,7 +1979,7 @@
             <local-name>[show_toolbar]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>show_toolbar</remote-alias>
-            <ordinal>87</ordinal>
+            <ordinal>89</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -1952,7 +1994,7 @@
             <local-name>[extracts_incremented_at]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>extracts_incremented_at</remote-alias>
-            <ordinal>88</ordinal>
+            <ordinal>90</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -1967,7 +2009,7 @@
             <local-name>[default_view_index]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>default_view_index</remote-alias>
-            <ordinal>89</ordinal>
+            <ordinal>91</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -1983,7 +2025,7 @@
             <local-name>[luid (workbooks)]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>luid</remote-alias>
-            <ordinal>90</ordinal>
+            <ordinal>92</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>40</width>
@@ -2000,7 +2042,7 @@
             <local-name>[asset_key_id]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>asset_key_id</remote-alias>
-            <ordinal>91</ordinal>
+            <ordinal>93</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2016,7 +2058,7 @@
             <local-name>[document_version]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>document_version</remote-alias>
-            <ordinal>92</ordinal>
+            <ordinal>94</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2034,7 +2076,7 @@
             <local-name>[content_version]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>content_version</remote-alias>
-            <ordinal>93</ordinal>
+            <ordinal>95</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2050,7 +2092,7 @@
             <local-name>[last_published_at]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>last_published_at</remote-alias>
-            <ordinal>94</ordinal>
+            <ordinal>96</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2065,7 +2107,7 @@
             <local-name>[data_id]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>data_id</remote-alias>
-            <ordinal>95</ordinal>
+            <ordinal>97</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>50</width>
@@ -2083,7 +2125,7 @@
             <local-name>[reduced_data_id]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>reduced_data_id</remote-alias>
-            <ordinal>96</ordinal>
+            <ordinal>98</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>50</width>
@@ -2101,7 +2143,7 @@
             <local-name>[published_all_sheets]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>published_all_sheets</remote-alias>
-            <ordinal>97</ordinal>
+            <ordinal>99</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -2116,7 +2158,7 @@
             <local-name>[extract_encryption_state]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>extract_encryption_state</remote-alias>
-            <ordinal>98</ordinal>
+            <ordinal>100</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -2132,7 +2174,7 @@
             <local-name>[extract_creation_pending]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>extract_creation_pending</remote-alias>
-            <ordinal>99</ordinal>
+            <ordinal>101</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -2148,7 +2190,7 @@
             <local-name>[is_deleted]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>is_deleted</remote-alias>
-            <ordinal>100</ordinal>
+            <ordinal>102</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -2163,7 +2205,7 @@
             <local-name>[parent_workbook_id]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>parent_workbook_id</remote-alias>
-            <ordinal>101</ordinal>
+            <ordinal>103</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2179,7 +2221,7 @@
             <local-name>[is_private]</local-name>
             <parent-name>[workbooks]</parent-name>
             <remote-alias>is_private</remote-alias>
-            <ordinal>102</ordinal>
+            <ordinal>104</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -2189,12 +2231,28 @@
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>modified_by_user_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[modified_by_user_id]</local-name>
+            <parent-name>[workbooks]</parent-name>
+            <remote-alias>modified_by_user_id</remote-alias>
+            <ordinal>105</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>id</remote-name>
             <remote-type>3</remote-type>
             <local-name>[id (_users)]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>104</ordinal>
+            <ordinal>107</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2210,7 +2268,7 @@
             <local-name>[name (Data Source Owner (_Users))]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>105</ordinal>
+            <ordinal>108</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2228,7 +2286,7 @@
             <local-name>[login_at]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>login_at</remote-alias>
-            <ordinal>106</ordinal>
+            <ordinal>109</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2243,7 +2301,7 @@
             <local-name>[friendly_name (Data Source Owner (_Users))]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>friendly_name</remote-alias>
-            <ordinal>107</ordinal>
+            <ordinal>110</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2261,7 +2319,7 @@
             <local-name>[licensing_role_id]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>licensing_role_id</remote-alias>
-            <ordinal>108</ordinal>
+            <ordinal>111</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2277,7 +2335,7 @@
             <local-name>[licensing_role_name]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>licensing_role_name</remote-alias>
-            <ordinal>109</ordinal>
+            <ordinal>112</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2295,7 +2353,7 @@
             <local-name>[domain_id (Data Source Owner (_Users))]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>domain_id</remote-alias>
-            <ordinal>110</ordinal>
+            <ordinal>113</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2311,7 +2369,7 @@
             <local-name>[system_user_id]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>system_user_id</remote-alias>
-            <ordinal>111</ordinal>
+            <ordinal>114</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2327,7 +2385,7 @@
             <local-name>[domain_name]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>domain_name</remote-alias>
-            <ordinal>112</ordinal>
+            <ordinal>115</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2345,7 +2403,7 @@
             <local-name>[domain_short_name]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>domain_short_name</remote-alias>
-            <ordinal>113</ordinal>
+            <ordinal>116</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>80</width>
@@ -2363,7 +2421,7 @@
             <local-name>[site_id (_users)]</local-name>
             <parent-name>[Data Source Owner (_Users)]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>114</ordinal>
+            <ordinal>117</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2379,7 +2437,7 @@
             <local-name>[id (system_users)]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>116</ordinal>
+            <ordinal>119</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2395,7 +2453,7 @@
             <local-name>[name (system_users)]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>117</ordinal>
+            <ordinal>120</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2413,7 +2471,7 @@
             <local-name>[email]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>email</remote-alias>
-            <ordinal>118</ordinal>
+            <ordinal>121</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2431,7 +2489,7 @@
             <local-name>[hashed_password]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>hashed_password</remote-alias>
-            <ordinal>119</ordinal>
+            <ordinal>122</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2449,7 +2507,7 @@
             <local-name>[salt]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>salt</remote-alias>
-            <ordinal>120</ordinal>
+            <ordinal>123</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2467,7 +2525,7 @@
             <local-name>[sys]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>sys</remote-alias>
-            <ordinal>121</ordinal>
+            <ordinal>124</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -2482,7 +2540,7 @@
             <local-name>[keychain (system_users)]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>keychain</remote-alias>
-            <ordinal>122</ordinal>
+            <ordinal>125</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -2500,7 +2558,7 @@
             <local-name>[domain_id]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>domain_id</remote-alias>
-            <ordinal>123</ordinal>
+            <ordinal>126</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2516,7 +2574,7 @@
             <local-name>[friendly_name]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>friendly_name</remote-alias>
-            <ordinal>124</ordinal>
+            <ordinal>127</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2534,7 +2592,7 @@
             <local-name>[custom_display_name]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>custom_display_name</remote-alias>
-            <ordinal>125</ordinal>
+            <ordinal>128</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -2549,7 +2607,7 @@
             <local-name>[activation_code]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>activation_code</remote-alias>
-            <ordinal>126</ordinal>
+            <ordinal>129</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2567,7 +2625,7 @@
             <local-name>[activated_at]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>activated_at</remote-alias>
-            <ordinal>127</ordinal>
+            <ordinal>130</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2582,7 +2640,7 @@
             <local-name>[state (system_users)]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>128</ordinal>
+            <ordinal>131</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2600,7 +2658,7 @@
             <local-name>[admin_level (system_users)]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>admin_level</remote-alias>
-            <ordinal>129</ordinal>
+            <ordinal>132</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2616,7 +2674,7 @@
             <local-name>[created_at (system_users)]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>130</ordinal>
+            <ordinal>133</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2631,7 +2689,7 @@
             <local-name>[updated_at (system_users)]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>131</ordinal>
+            <ordinal>134</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2646,7 +2704,7 @@
             <local-name>[deleted_at]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>deleted_at</remote-alias>
-            <ordinal>132</ordinal>
+            <ordinal>135</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2661,7 +2719,7 @@
             <local-name>[auth_user_id]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>auth_user_id</remote-alias>
-            <ordinal>133</ordinal>
+            <ordinal>136</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2679,7 +2737,7 @@
             <local-name>[asset_key_id (system_users)]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>asset_key_id</remote-alias>
-            <ordinal>134</ordinal>
+            <ordinal>137</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2695,7 +2753,7 @@
             <local-name>[lock_version (Data Source Owner (System Users))]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>135</ordinal>
+            <ordinal>138</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2711,7 +2769,7 @@
             <local-name>[last_password_update]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>last_password_update</remote-alias>
-            <ordinal>136</ordinal>
+            <ordinal>139</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2726,7 +2784,7 @@
             <local-name>[force_password_update]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>force_password_update</remote-alias>
-            <ordinal>137</ordinal>
+            <ordinal>140</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -2741,7 +2799,7 @@
             <local-name>[last_failed_login]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>last_failed_login</remote-alias>
-            <ordinal>138</ordinal>
+            <ordinal>141</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2756,7 +2814,7 @@
             <local-name>[failed_login_attempts]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>failed_login_attempts</remote-alias>
-            <ordinal>139</ordinal>
+            <ordinal>142</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2772,7 +2830,7 @@
             <local-name>[protected_password]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>protected_password</remote-alias>
-            <ordinal>140</ordinal>
+            <ordinal>143</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2790,7 +2848,7 @@
             <local-name>[protected_password_bad_format]</local-name>
             <parent-name>[Data Source Owner (System Users)]</parent-name>
             <remote-alias>protected_password_bad_format</remote-alias>
-            <ordinal>141</ordinal>
+            <ordinal>144</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -2805,7 +2863,7 @@
             <local-name>[id (_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>143</ordinal>
+            <ordinal>146</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2821,7 +2879,7 @@
             <local-name>[name (Underlying Data Source Owner (_Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>144</ordinal>
+            <ordinal>147</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2839,7 +2897,7 @@
             <local-name>[login_at (_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>login_at</remote-alias>
-            <ordinal>145</ordinal>
+            <ordinal>148</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -2854,7 +2912,7 @@
             <local-name>[friendly_name (Underlying Data Source Owner (_Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>friendly_name</remote-alias>
-            <ordinal>146</ordinal>
+            <ordinal>149</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2872,7 +2930,7 @@
             <local-name>[licensing_role_id (_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>licensing_role_id</remote-alias>
-            <ordinal>147</ordinal>
+            <ordinal>150</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2888,7 +2946,7 @@
             <local-name>[licensing_role_name (Underlying Data Source Owner (_Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>licensing_role_name</remote-alias>
-            <ordinal>148</ordinal>
+            <ordinal>151</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2906,7 +2964,7 @@
             <local-name>[domain_id (Underlying Data Source Owner (_Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>domain_id</remote-alias>
-            <ordinal>149</ordinal>
+            <ordinal>152</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2922,7 +2980,7 @@
             <local-name>[system_user_id (_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>system_user_id</remote-alias>
-            <ordinal>150</ordinal>
+            <ordinal>153</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2938,7 +2996,7 @@
             <local-name>[domain_name (Underlying Data Source Owner (_Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>domain_name</remote-alias>
-            <ordinal>151</ordinal>
+            <ordinal>154</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -2956,7 +3014,7 @@
             <local-name>[domain_short_name (Underlying Data Source Owner (_Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>domain_short_name</remote-alias>
-            <ordinal>152</ordinal>
+            <ordinal>155</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>80</width>
@@ -2974,7 +3032,7 @@
             <local-name>[site_id (_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (_Users)]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>153</ordinal>
+            <ordinal>156</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -2990,7 +3048,7 @@
             <local-name>[id (system_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>155</ordinal>
+            <ordinal>158</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3006,7 +3064,7 @@
             <local-name>[name (system_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>156</ordinal>
+            <ordinal>159</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3024,7 +3082,7 @@
             <local-name>[email (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>email</remote-alias>
-            <ordinal>157</ordinal>
+            <ordinal>160</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3042,7 +3100,7 @@
             <local-name>[hashed_password (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>hashed_password</remote-alias>
-            <ordinal>158</ordinal>
+            <ordinal>161</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3060,7 +3118,7 @@
             <local-name>[salt (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>salt</remote-alias>
-            <ordinal>159</ordinal>
+            <ordinal>162</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3078,7 +3136,7 @@
             <local-name>[sys (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>sys</remote-alias>
-            <ordinal>160</ordinal>
+            <ordinal>163</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3093,7 +3151,7 @@
             <local-name>[keychain (system_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>keychain</remote-alias>
-            <ordinal>161</ordinal>
+            <ordinal>164</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -3111,7 +3169,7 @@
             <local-name>[domain_id (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>domain_id</remote-alias>
-            <ordinal>162</ordinal>
+            <ordinal>165</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3127,7 +3185,7 @@
             <local-name>[friendly_name (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>friendly_name</remote-alias>
-            <ordinal>163</ordinal>
+            <ordinal>166</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3145,7 +3203,7 @@
             <local-name>[custom_display_name (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>custom_display_name</remote-alias>
-            <ordinal>164</ordinal>
+            <ordinal>167</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3160,7 +3218,7 @@
             <local-name>[activation_code (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>activation_code</remote-alias>
-            <ordinal>165</ordinal>
+            <ordinal>168</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3178,7 +3236,7 @@
             <local-name>[activated_at (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>activated_at</remote-alias>
-            <ordinal>166</ordinal>
+            <ordinal>169</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3193,7 +3251,7 @@
             <local-name>[state (system_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>167</ordinal>
+            <ordinal>170</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3211,7 +3269,7 @@
             <local-name>[admin_level (system_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>admin_level</remote-alias>
-            <ordinal>168</ordinal>
+            <ordinal>171</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3227,7 +3285,7 @@
             <local-name>[created_at (system_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>169</ordinal>
+            <ordinal>172</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3242,7 +3300,7 @@
             <local-name>[updated_at (system_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>170</ordinal>
+            <ordinal>173</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3257,7 +3315,7 @@
             <local-name>[deleted_at (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>deleted_at</remote-alias>
-            <ordinal>171</ordinal>
+            <ordinal>174</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3272,7 +3330,7 @@
             <local-name>[auth_user_id (system_users)]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>auth_user_id</remote-alias>
-            <ordinal>172</ordinal>
+            <ordinal>175</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3290,7 +3348,7 @@
             <local-name>[asset_key_id (system_users) #1]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>asset_key_id</remote-alias>
-            <ordinal>173</ordinal>
+            <ordinal>176</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3306,7 +3364,7 @@
             <local-name>[lock_version (Underlying Data Source Owner (System Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>174</ordinal>
+            <ordinal>177</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3322,7 +3380,7 @@
             <local-name>[last_password_update (Underlying Data Source Owner (System Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>last_password_update</remote-alias>
-            <ordinal>175</ordinal>
+            <ordinal>178</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3337,7 +3395,7 @@
             <local-name>[force_password_update (Underlying Data Source Owner (System Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>force_password_update</remote-alias>
-            <ordinal>176</ordinal>
+            <ordinal>179</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3352,7 +3410,7 @@
             <local-name>[last_failed_login (Underlying Data Source Owner (System Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>last_failed_login</remote-alias>
-            <ordinal>177</ordinal>
+            <ordinal>180</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3367,7 +3425,7 @@
             <local-name>[failed_login_attempts (Underlying Data Source Owner (System Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>failed_login_attempts</remote-alias>
-            <ordinal>178</ordinal>
+            <ordinal>181</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3383,7 +3441,7 @@
             <local-name>[protected_password (Underlying Data Source Owner (System Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>protected_password</remote-alias>
-            <ordinal>179</ordinal>
+            <ordinal>182</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3401,7 +3459,7 @@
             <local-name>[protected_password_bad_format (Underlying Data Source Owner (System Users))]</local-name>
             <parent-name>[Underlying Data Source Owner (System Users)]</parent-name>
             <remote-alias>protected_password_bad_format</remote-alias>
-            <ordinal>180</ordinal>
+            <ordinal>183</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3416,7 +3474,7 @@
             <local-name>[id (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>182</ordinal>
+            <ordinal>185</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3432,7 +3490,7 @@
             <local-name>[name (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>183</ordinal>
+            <ordinal>186</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3450,7 +3508,7 @@
             <local-name>[url_namespace]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>url_namespace</remote-alias>
-            <ordinal>184</ordinal>
+            <ordinal>187</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3468,7 +3526,7 @@
             <local-name>[status]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>status</remote-alias>
-            <ordinal>185</ordinal>
+            <ordinal>188</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3486,7 +3544,7 @@
             <local-name>[created_at (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>186</ordinal>
+            <ordinal>189</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3501,7 +3559,7 @@
             <local-name>[updated_at (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>187</ordinal>
+            <ordinal>190</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -3516,7 +3574,7 @@
             <local-name>[user_quota]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>user_quota</remote-alias>
-            <ordinal>188</ordinal>
+            <ordinal>191</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3532,7 +3590,7 @@
             <local-name>[content_admin_mode]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>content_admin_mode</remote-alias>
-            <ordinal>189</ordinal>
+            <ordinal>192</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3548,7 +3606,7 @@
             <local-name>[storage_quota]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>storage_quota</remote-alias>
-            <ordinal>190</ordinal>
+            <ordinal>193</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -3564,7 +3622,7 @@
             <local-name>[metrics_level]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>metrics_level</remote-alias>
-            <ordinal>191</ordinal>
+            <ordinal>194</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -3580,7 +3638,7 @@
             <local-name>[status_reason]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>status_reason</remote-alias>
-            <ordinal>192</ordinal>
+            <ordinal>195</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -3598,7 +3656,7 @@
             <local-name>[subscriptions_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>subscriptions_enabled</remote-alias>
-            <ordinal>193</ordinal>
+            <ordinal>196</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3613,7 +3671,7 @@
             <local-name>[custom_subscription_footer]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>custom_subscription_footer</remote-alias>
-            <ordinal>194</ordinal>
+            <ordinal>197</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -3631,7 +3689,7 @@
             <local-name>[custom_subscription_email]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>custom_subscription_email</remote-alias>
-            <ordinal>195</ordinal>
+            <ordinal>198</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -3649,7 +3707,7 @@
             <local-name>[luid (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>luid</remote-alias>
-            <ordinal>196</ordinal>
+            <ordinal>199</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>40</width>
@@ -3666,7 +3724,7 @@
             <local-name>[query_limit]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>query_limit</remote-alias>
-            <ordinal>197</ordinal>
+            <ordinal>200</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3682,7 +3740,7 @@
             <local-name>[authoring_disabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>authoring_disabled</remote-alias>
-            <ordinal>198</ordinal>
+            <ordinal>201</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3697,7 +3755,7 @@
             <local-name>[sheet_image_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sheet_image_enabled</remote-alias>
-            <ordinal>199</ordinal>
+            <ordinal>202</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3712,7 +3770,7 @@
             <local-name>[refresh_token_setting]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>refresh_token_setting</remote-alias>
-            <ordinal>200</ordinal>
+            <ordinal>203</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3728,7 +3786,7 @@
             <local-name>[version_history_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>version_history_enabled</remote-alias>
-            <ordinal>201</ordinal>
+            <ordinal>204</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3743,7 +3801,7 @@
             <local-name>[content_version_limit]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>content_version_limit</remote-alias>
-            <ordinal>202</ordinal>
+            <ordinal>205</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3759,7 +3817,7 @@
             <local-name>[notification_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>notification_enabled</remote-alias>
-            <ordinal>203</ordinal>
+            <ordinal>206</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3774,7 +3832,7 @@
             <local-name>[subscribe_others_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>subscribe_others_enabled</remote-alias>
-            <ordinal>204</ordinal>
+            <ordinal>207</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3789,7 +3847,7 @@
             <local-name>[lock_version (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>205</ordinal>
+            <ordinal>208</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3805,7 +3863,7 @@
             <local-name>[guest_access_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>guest_access_enabled</remote-alias>
-            <ordinal>206</ordinal>
+            <ordinal>209</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3820,7 +3878,7 @@
             <local-name>[support_access_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>support_access_enabled</remote-alias>
-            <ordinal>207</ordinal>
+            <ordinal>210</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3835,7 +3893,7 @@
             <local-name>[cache_warmup_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>cache_warmup_enabled</remote-alias>
-            <ordinal>208</ordinal>
+            <ordinal>211</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3850,7 +3908,7 @@
             <local-name>[cache_warmup_threshold]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>cache_warmup_threshold</remote-alias>
-            <ordinal>209</ordinal>
+            <ordinal>212</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -3866,7 +3924,7 @@
             <local-name>[data_alerts_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>data_alerts_enabled</remote-alias>
-            <ordinal>210</ordinal>
+            <ordinal>213</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3881,7 +3939,7 @@
             <local-name>[allow_live_query_sync]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>allow_live_query_sync</remote-alias>
-            <ordinal>211</ordinal>
+            <ordinal>214</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3896,7 +3954,7 @@
             <local-name>[commenting_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>commenting_enabled</remote-alias>
-            <ordinal>212</ordinal>
+            <ordinal>215</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3911,7 +3969,7 @@
             <local-name>[self_service_schedules_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>self_service_schedules_enabled</remote-alias>
-            <ordinal>213</ordinal>
+            <ordinal>216</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -3926,7 +3984,7 @@
             <local-name>[tier_interactor_capacity]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>tier_interactor_capacity</remote-alias>
-            <ordinal>214</ordinal>
+            <ordinal>217</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3942,7 +4000,7 @@
             <local-name>[tier_basic_user_capacity]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>tier_basic_user_capacity</remote-alias>
-            <ordinal>215</ordinal>
+            <ordinal>218</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3958,7 +4016,7 @@
             <local-name>[tier_author_capacity]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>tier_author_capacity</remote-alias>
-            <ordinal>216</ordinal>
+            <ordinal>219</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -3974,7 +4032,7 @@
             <local-name>[viz_in_tooltip_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>viz_in_tooltip_enabled</remote-alias>
-            <ordinal>217</ordinal>
+            <ordinal>220</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -3989,7 +4047,7 @@
             <local-name>[protocol_cache_lifetime]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>protocol_cache_lifetime</remote-alias>
-            <ordinal>218</ordinal>
+            <ordinal>221</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4005,7 +4063,7 @@
             <local-name>[protocol_group_size_limit]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>protocol_group_size_limit</remote-alias>
-            <ordinal>219</ordinal>
+            <ordinal>222</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4021,7 +4079,7 @@
             <local-name>[commenting_mentions_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>commenting_mentions_enabled</remote-alias>
-            <ordinal>220</ordinal>
+            <ordinal>223</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4036,7 +4094,7 @@
             <local-name>[mixed_content_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>mixed_content_enabled</remote-alias>
-            <ordinal>221</ordinal>
+            <ordinal>224</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4051,7 +4109,7 @@
             <local-name>[site_invite_notification_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>site_invite_notification_enabled</remote-alias>
-            <ordinal>222</ordinal>
+            <ordinal>225</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4066,7 +4124,7 @@
             <local-name>[extract_encryption_mode]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>extract_encryption_mode</remote-alias>
-            <ordinal>223</ordinal>
+            <ordinal>226</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -4082,7 +4140,7 @@
             <local-name>[flows_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>flows_enabled</remote-alias>
-            <ordinal>224</ordinal>
+            <ordinal>227</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4097,7 +4155,7 @@
             <local-name>[materialized_views_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>materialized_views_enabled</remote-alias>
-            <ordinal>225</ordinal>
+            <ordinal>228</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4112,7 +4170,7 @@
             <local-name>[allow_subscriptions_attach_pdf]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>allow_subscriptions_attach_pdf</remote-alias>
-            <ordinal>226</ordinal>
+            <ordinal>229</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4127,7 +4185,7 @@
             <local-name>[materialized_views_mode]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>materialized_views_mode</remote-alias>
-            <ordinal>227</ordinal>
+            <ordinal>230</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -4143,7 +4201,7 @@
             <local-name>[start_page_uri]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>start_page_uri</remote-alias>
-            <ordinal>228</ordinal>
+            <ordinal>231</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4161,7 +4219,7 @@
             <local-name>[afe_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>afe_enabled</remote-alias>
-            <ordinal>229</ordinal>
+            <ordinal>232</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4176,7 +4234,7 @@
             <local-name>[sandbox_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sandbox_enabled</remote-alias>
-            <ordinal>230</ordinal>
+            <ordinal>233</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4191,7 +4249,7 @@
             <local-name>[viz_recs_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>viz_recs_enabled</remote-alias>
-            <ordinal>231</ordinal>
+            <ordinal>234</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4206,7 +4264,7 @@
             <local-name>[biometrics_mobile_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>biometrics_mobile_enabled</remote-alias>
-            <ordinal>232</ordinal>
+            <ordinal>235</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4221,7 +4279,7 @@
             <local-name>[iba_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>iba_enabled</remote-alias>
-            <ordinal>233</ordinal>
+            <ordinal>236</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4236,7 +4294,7 @@
             <local-name>[named_sharing_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>named_sharing_enabled</remote-alias>
-            <ordinal>234</ordinal>
+            <ordinal>237</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4251,7 +4309,7 @@
             <local-name>[sandbox_storage_quota]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sandbox_storage_quota</remote-alias>
-            <ordinal>235</ordinal>
+            <ordinal>238</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -4267,7 +4325,7 @@
             <local-name>[sandbox_datasources_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sandbox_datasources_enabled</remote-alias>
-            <ordinal>236</ordinal>
+            <ordinal>239</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4282,7 +4340,7 @@
             <local-name>[sandbox_flows_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sandbox_flows_enabled</remote-alias>
-            <ordinal>237</ordinal>
+            <ordinal>240</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4297,7 +4355,7 @@
             <local-name>[cataloging_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>cataloging_enabled</remote-alias>
-            <ordinal>238</ordinal>
+            <ordinal>241</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4312,7 +4370,7 @@
             <local-name>[derived_permissions_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>derived_permissions_enabled</remote-alias>
-            <ordinal>239</ordinal>
+            <ordinal>242</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4327,7 +4385,7 @@
             <local-name>[viz_recs_username_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>viz_recs_username_enabled</remote-alias>
-            <ordinal>240</ordinal>
+            <ordinal>243</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4342,7 +4400,7 @@
             <local-name>[user_visibility]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>user_visibility</remote-alias>
-            <ordinal>241</ordinal>
+            <ordinal>244</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4358,7 +4416,7 @@
             <local-name>[request_access]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>request_access</remote-alias>
-            <ordinal>242</ordinal>
+            <ordinal>245</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4374,7 +4432,7 @@
             <local-name>[ask_data_mode]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>ask_data_mode</remote-alias>
-            <ordinal>243</ordinal>
+            <ordinal>246</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4392,7 +4450,7 @@
             <local-name>[run_now_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>run_now_enabled</remote-alias>
-            <ordinal>244</ordinal>
+            <ordinal>247</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4407,7 +4465,7 @@
             <local-name>[web_extraction_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>web_extraction_enabled</remote-alias>
-            <ordinal>245</ordinal>
+            <ordinal>248</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -4418,12 +4476,72 @@
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>metrics_enabled</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[metrics_enabled]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>metrics_enabled</remote-alias>
+            <ordinal>249</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>web_editing_enabled</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[web_editing_enabled]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>web_editing_enabled</remote-alias>
+            <ordinal>250</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>notify_site_admins_on_throttle</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[notify_site_admins_on_throttle]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>notify_site_admins_on_throttle</remote-alias>
+            <ordinal>251</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>obfuscation_enabled</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[obfuscation_enabled]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>obfuscation_enabled</remote-alias>
+            <ordinal>252</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>id</remote-name>
             <remote-type>3</remote-type>
             <local-name>[id (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>247</ordinal>
+            <ordinal>254</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4439,7 +4557,7 @@
             <local-name>[name (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>248</ordinal>
+            <ordinal>255</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4457,7 +4575,7 @@
             <local-name>[owner_id (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>owner_id</remote-alias>
-            <ordinal>249</ordinal>
+            <ordinal>256</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4473,7 +4591,7 @@
             <local-name>[created_at (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>250</ordinal>
+            <ordinal>257</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -4488,7 +4606,7 @@
             <local-name>[updated_at (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>251</ordinal>
+            <ordinal>258</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -4503,7 +4621,7 @@
             <local-name>[state (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>252</ordinal>
+            <ordinal>259</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>32</width>
@@ -4521,7 +4639,7 @@
             <local-name>[description (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>description</remote-alias>
-            <ordinal>253</ordinal>
+            <ordinal>260</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4539,7 +4657,7 @@
             <local-name>[site_id (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>254</ordinal>
+            <ordinal>261</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4555,7 +4673,7 @@
             <local-name>[special]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>special</remote-alias>
-            <ordinal>255</ordinal>
+            <ordinal>262</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4571,7 +4689,7 @@
             <local-name>[luid (projects)]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>luid</remote-alias>
-            <ordinal>256</ordinal>
+            <ordinal>263</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>40</width>
@@ -4588,7 +4706,7 @@
             <local-name>[controlled_permissions_enabled]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>controlled_permissions_enabled</remote-alias>
-            <ordinal>257</ordinal>
+            <ordinal>264</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4603,7 +4721,7 @@
             <local-name>[parent_project_id]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>parent_project_id</remote-alias>
-            <ordinal>258</ordinal>
+            <ordinal>265</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4619,7 +4737,7 @@
             <local-name>[admin_insights_enabled]</local-name>
             <parent-name>[Data Source Project]</parent-name>
             <remote-alias>admin_insights_enabled</remote-alias>
-            <ordinal>259</ordinal>
+            <ordinal>266</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -4629,12 +4747,43 @@
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>nested_projects_permissions_included</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[nested_projects_permissions_included]</local-name>
+            <parent-name>[Data Source Project]</parent-name>
+            <remote-alias>nested_projects_permissions_included</remote-alias>
+            <ordinal>267</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>controlling_permissions_project_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[controlling_permissions_project_id]</local-name>
+            <parent-name>[Data Source Project]</parent-name>
+            <remote-alias>controlling_permissions_project_id</remote-alias>
+            <ordinal>268</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>id</remote-name>
             <remote-type>3</remote-type>
             <local-name>[id (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>261</ordinal>
+            <ordinal>270</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4650,7 +4799,7 @@
             <local-name>[name (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>262</ordinal>
+            <ordinal>271</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4668,7 +4817,7 @@
             <local-name>[owner_id (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>owner_id</remote-alias>
-            <ordinal>263</ordinal>
+            <ordinal>272</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4684,7 +4833,7 @@
             <local-name>[created_at (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>264</ordinal>
+            <ordinal>273</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -4699,7 +4848,7 @@
             <local-name>[updated_at (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>265</ordinal>
+            <ordinal>274</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -4714,7 +4863,7 @@
             <local-name>[state (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>266</ordinal>
+            <ordinal>275</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>32</width>
@@ -4732,7 +4881,7 @@
             <local-name>[description (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>description</remote-alias>
-            <ordinal>267</ordinal>
+            <ordinal>276</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4750,7 +4899,7 @@
             <local-name>[site_id (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>268</ordinal>
+            <ordinal>277</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4766,7 +4915,7 @@
             <local-name>[special (projects)]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>special</remote-alias>
-            <ordinal>269</ordinal>
+            <ordinal>278</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4782,7 +4931,7 @@
             <local-name>[luid (projects) #1]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>luid</remote-alias>
-            <ordinal>270</ordinal>
+            <ordinal>279</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>40</width>
@@ -4799,7 +4948,7 @@
             <local-name>[controlled_permissions_enabled (projects)]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>controlled_permissions_enabled</remote-alias>
-            <ordinal>271</ordinal>
+            <ordinal>280</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4814,7 +4963,7 @@
             <local-name>[parent_project_id (Underlying Data Source Project)]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>parent_project_id</remote-alias>
-            <ordinal>272</ordinal>
+            <ordinal>281</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4830,7 +4979,7 @@
             <local-name>[admin_insights_enabled (Underlying Data Source Project)]</local-name>
             <parent-name>[Underlying Data Source Project]</parent-name>
             <remote-alias>admin_insights_enabled</remote-alias>
-            <ordinal>273</ordinal>
+            <ordinal>282</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4840,12 +4989,43 @@
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>nested_projects_permissions_included</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[nested_projects_permissions_included (Underlying Data Source Project)]</local-name>
+            <parent-name>[Underlying Data Source Project]</parent-name>
+            <remote-alias>nested_projects_permissions_included</remote-alias>
+            <ordinal>283</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>controlling_permissions_project_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[controlling_permissions_project_id (Underlying Data Source Project)]</local-name>
+            <parent-name>[Underlying Data Source Project]</parent-name>
+            <remote-alias>controlling_permissions_project_id</remote-alias>
+            <ordinal>284</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>data_connection_id</remote-name>
             <remote-type>3</remote-type>
             <local-name>[data_connection_id]</local-name>
             <parent-name>[Data Connection Ids]</parent-name>
             <remote-alias>data_connection_id</remote-alias>
-            <ordinal>275</ordinal>
+            <ordinal>286</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -4861,7 +5041,7 @@
             <local-name>[item_type]</local-name>
             <parent-name>[Data Connection Ids]</parent-name>
             <remote-alias>item_type</remote-alias>
-            <ordinal>276</ordinal>
+            <ordinal>287</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4879,7 +5059,7 @@
             <local-name>[datasource_id (Custom SQL Query)]</local-name>
             <parent-name>[Data Connection Ids]</parent-name>
             <remote-alias>datasource_id</remote-alias>
-            <ordinal>277</ordinal>
+            <ordinal>288</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4895,7 +5075,7 @@
             <local-name>[dummy_join_field]</local-name>
             <parent-name>[Server Admin Permissions (Custom SQL)]</parent-name>
             <remote-alias>dummy_join_field</remote-alias>
-            <ordinal>279</ordinal>
+            <ordinal>290</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -4911,7 +5091,7 @@
             <local-name>[server_admins_string]</local-name>
             <parent-name>[Server Admin Permissions (Custom SQL)]</parent-name>
             <remote-alias>server_admins_string</remote-alias>
-            <ordinal>280</ordinal>
+            <ordinal>291</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4929,7 +5109,7 @@
             <local-name>[site_id (Custom SQL Query)]</local-name>
             <parent-name>[Site Admin Permissions (Custom SQL)]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>282</ordinal>
+            <ordinal>293</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4945,7 +5125,7 @@
             <local-name>[site_admins_string]</local-name>
             <parent-name>[Site Admin Permissions (Custom SQL)]</parent-name>
             <remote-alias>site_admins_string</remote-alias>
-            <ordinal>283</ordinal>
+            <ordinal>294</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4963,7 +5143,7 @@
             <local-name>[project_id (Custom SQL Query)]</local-name>
             <parent-name>[Project Leader Permissions (Custom SQL)]</parent-name>
             <remote-alias>project_id</remote-alias>
-            <ordinal>285</ordinal>
+            <ordinal>296</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
@@ -4979,7 +5159,7 @@
             <local-name>[project_leaders_string]</local-name>
             <parent-name>[Project Leader Permissions (Custom SQL)]</parent-name>
             <remote-alias>project_leaders_string</remote-alias>
-            <ordinal>286</ordinal>
+            <ordinal>297</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -4997,7 +5177,7 @@
             <local-name>[id (users)]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>288</ordinal>
+            <ordinal>299</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5013,7 +5193,7 @@
             <local-name>[login_at (users)]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>login_at</remote-alias>
-            <ordinal>289</ordinal>
+            <ordinal>300</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5028,7 +5208,7 @@
             <local-name>[nonce]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>nonce</remote-alias>
-            <ordinal>290</ordinal>
+            <ordinal>301</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>32</width>
@@ -5046,7 +5226,7 @@
             <local-name>[row_limit]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>row_limit</remote-alias>
-            <ordinal>291</ordinal>
+            <ordinal>302</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5062,7 +5242,7 @@
             <local-name>[storage_limit]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>storage_limit</remote-alias>
-            <ordinal>292</ordinal>
+            <ordinal>303</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5078,7 +5258,7 @@
             <local-name>[created_at (users)]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>293</ordinal>
+            <ordinal>304</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5093,7 +5273,7 @@
             <local-name>[extracts_required]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>extracts_required</remote-alias>
-            <ordinal>294</ordinal>
+            <ordinal>305</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5108,7 +5288,7 @@
             <local-name>[updated_at (users)]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>295</ordinal>
+            <ordinal>306</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5123,7 +5303,7 @@
             <local-name>[raw_data_suppressor_tristate]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>raw_data_suppressor_tristate</remote-alias>
-            <ordinal>296</ordinal>
+            <ordinal>307</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5139,7 +5319,7 @@
             <local-name>[site_id (users)]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>297</ordinal>
+            <ordinal>308</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5155,7 +5335,7 @@
             <local-name>[system_user_id (users)]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>system_user_id</remote-alias>
-            <ordinal>298</ordinal>
+            <ordinal>309</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5171,7 +5351,7 @@
             <local-name>[system_admin_auto]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>system_admin_auto</remote-alias>
-            <ordinal>299</ordinal>
+            <ordinal>310</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5186,7 +5366,7 @@
             <local-name>[luid (users)]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>luid</remote-alias>
-            <ordinal>300</ordinal>
+            <ordinal>311</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>40</width>
@@ -5203,7 +5383,7 @@
             <local-name>[lock_version (users)]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>301</ordinal>
+            <ordinal>312</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5219,7 +5399,7 @@
             <local-name>[site_role_id]</local-name>
             <parent-name>[Data Source Project Owner (user)]</parent-name>
             <remote-alias>site_role_id</remote-alias>
-            <ordinal>302</ordinal>
+            <ordinal>313</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5235,7 +5415,7 @@
             <local-name>[id (system_users) #2]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>304</ordinal>
+            <ordinal>315</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5251,7 +5431,7 @@
             <local-name>[name (system_users) #2]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>305</ordinal>
+            <ordinal>316</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5269,7 +5449,7 @@
             <local-name>[email (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>email</remote-alias>
-            <ordinal>306</ordinal>
+            <ordinal>317</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5287,7 +5467,7 @@
             <local-name>[hashed_password (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>hashed_password</remote-alias>
-            <ordinal>307</ordinal>
+            <ordinal>318</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5305,7 +5485,7 @@
             <local-name>[salt (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>salt</remote-alias>
-            <ordinal>308</ordinal>
+            <ordinal>319</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5323,7 +5503,7 @@
             <local-name>[sys (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>sys</remote-alias>
-            <ordinal>309</ordinal>
+            <ordinal>320</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5338,7 +5518,7 @@
             <local-name>[keychain (system_users) #2]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>keychain</remote-alias>
-            <ordinal>310</ordinal>
+            <ordinal>321</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>8190</width>
@@ -5356,7 +5536,7 @@
             <local-name>[domain_id (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>domain_id</remote-alias>
-            <ordinal>311</ordinal>
+            <ordinal>322</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5372,7 +5552,7 @@
             <local-name>[friendly_name (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>friendly_name</remote-alias>
-            <ordinal>312</ordinal>
+            <ordinal>323</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5390,7 +5570,7 @@
             <local-name>[custom_display_name (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>custom_display_name</remote-alias>
-            <ordinal>313</ordinal>
+            <ordinal>324</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5405,7 +5585,7 @@
             <local-name>[activation_code (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>activation_code</remote-alias>
-            <ordinal>314</ordinal>
+            <ordinal>325</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5423,7 +5603,7 @@
             <local-name>[activated_at (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>activated_at</remote-alias>
-            <ordinal>315</ordinal>
+            <ordinal>326</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5438,7 +5618,7 @@
             <local-name>[state (system_users) #2]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>316</ordinal>
+            <ordinal>327</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5456,7 +5636,7 @@
             <local-name>[admin_level]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>admin_level</remote-alias>
-            <ordinal>317</ordinal>
+            <ordinal>328</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5472,7 +5652,7 @@
             <local-name>[created_at (system_users) #2]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>318</ordinal>
+            <ordinal>329</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5487,7 +5667,7 @@
             <local-name>[updated_at (system_users) #2]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>319</ordinal>
+            <ordinal>330</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5502,7 +5682,7 @@
             <local-name>[deleted_at (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>deleted_at</remote-alias>
-            <ordinal>320</ordinal>
+            <ordinal>331</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5517,7 +5697,7 @@
             <local-name>[auth_user_id (system_users) #1]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>auth_user_id</remote-alias>
-            <ordinal>321</ordinal>
+            <ordinal>332</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5535,7 +5715,7 @@
             <local-name>[asset_key_id (system_users) #2]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>asset_key_id</remote-alias>
-            <ordinal>322</ordinal>
+            <ordinal>333</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5551,7 +5731,7 @@
             <local-name>[lock_version (system_users)]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>323</ordinal>
+            <ordinal>334</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5567,7 +5747,7 @@
             <local-name>[last_password_update (system_users)]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>last_password_update</remote-alias>
-            <ordinal>324</ordinal>
+            <ordinal>335</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5582,7 +5762,7 @@
             <local-name>[force_password_update (system_users)]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>force_password_update</remote-alias>
-            <ordinal>325</ordinal>
+            <ordinal>336</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5597,7 +5777,7 @@
             <local-name>[last_failed_login (system_users)]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>last_failed_login</remote-alias>
-            <ordinal>326</ordinal>
+            <ordinal>337</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -5612,7 +5792,7 @@
             <local-name>[failed_login_attempts (system_users)]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>failed_login_attempts</remote-alias>
-            <ordinal>327</ordinal>
+            <ordinal>338</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5628,7 +5808,7 @@
             <local-name>[protected_password (system_users)]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>protected_password</remote-alias>
-            <ordinal>328</ordinal>
+            <ordinal>339</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -5646,7 +5826,7 @@
             <local-name>[protected_password_bad_format (system_users)]</local-name>
             <parent-name>[Data Source Project Owner (system user)]</parent-name>
             <remote-alias>protected_password_bad_format</remote-alias>
-            <ordinal>329</ordinal>
+            <ordinal>340</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5695,6 +5875,13 @@
         <desc>
           <formatted-text>
             <run>Determines whether the Tableau Server user accessing this data source has rights to see an event described by it. This is set as a Data Source level filter so that it applies to anyone accessing the data source.</run>
+          </formatted-text>
+        </desc>
+      </column>
+      <column datatype='datetime' name='[Datasource Created At]' role='dimension' type='ordinal'>
+        <desc>
+          <formatted-text>
+            <run>Date the data source was created, in UTC</run>
           </formatted-text>
         </desc>
       </column>
@@ -5748,6 +5935,14 @@
         <desc>
           <formatted-text>
             <run>The (local) time of the last full extract refresh.</run>
+          </formatted-text>
+        </desc>
+      </column>
+      <column caption='Datasource Created At (local)' datatype='datetime' name='[Datasource Extracts Refreshed At (local) (copy)]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATEADD(&apos;hour&apos;, [Parameters].[Parameter 1], [Datasource Created At])' />
+        <desc>
+          <formatted-text>
+            <run>Date the data source was created, in local time.</run>
           </formatted-text>
         </desc>
       </column>
@@ -5862,6 +6057,14 @@
           </formatted-text>
         </desc>
       </column>
+      <column caption='Datasource Updated At (local)' datatype='datetime' name='[Datasource Last Published At (local) (copy)]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATEADD(&apos;hour&apos;, [Parameters].[Parameter 1], [Datasource Updated At])' />
+        <desc>
+          <formatted-text>
+            <run>Date the data source was last updated, in local time.</run>
+          </formatted-text>
+        </desc>
+      </column>
       <column datatype='string' name='[Datasource Name (underlying)]' role='dimension' type='nominal'>
         <desc>
           <formatted-text>
@@ -5938,6 +6141,13 @@
         <desc>
           <formatted-text>
             <run>The name of the table associated with the data source. But, because data sources are more general than databases, this might, for example, actually refer to an Excel worksheet, or be blank.</run>
+          </formatted-text>
+        </desc>
+      </column>
+      <column datatype='datetime' name='[Datasource Updated At]' role='dimension' type='ordinal'>
+        <desc>
+          <formatted-text>
+            <run>Date the data source was last updated, in UTC</run>
           </formatted-text>
         </desc>
       </column>
@@ -6068,6 +6278,8 @@
       <column caption='Content Version Limit' datatype='integer' hidden='true' name='[content_version_limit]' role='measure' type='quantitative' />
       <column caption='Controlled Permissions Enabled (Projects)' datatype='boolean' hidden='true' name='[controlled_permissions_enabled (projects)]' role='dimension' type='nominal' />
       <column caption='Controlled Permissions Enabled' datatype='boolean' hidden='true' name='[controlled_permissions_enabled]' role='dimension' type='nominal' />
+      <column datatype='integer' hidden='true' name='[controlling_permissions_project_id (Underlying Data Source Project)]' role='measure' type='quantitative' />
+      <column datatype='integer' hidden='true' name='[controlling_permissions_project_id]' role='measure' type='quantitative' />
       <column caption='Created At (Projects) #1' datatype='datetime' hidden='true' name='[created_at (projects) #1]' role='dimension' type='ordinal' />
       <column caption='Created At (Projects)' datatype='datetime' hidden='true' name='[created_at (projects)]' role='dimension' type='ordinal' />
       <column caption='Created At (Sites)' datatype='datetime' hidden='true' name='[created_at (sites)]' role='dimension' type='ordinal' />
@@ -6325,8 +6537,10 @@
       <column caption='Luid' datatype='string' hidden='true' name='[luid]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[materialized_views_enabled]' role='dimension' type='nominal' />
       <column datatype='integer' hidden='true' name='[materialized_views_mode]' role='measure' type='quantitative' />
+      <column datatype='boolean' hidden='true' name='[metrics_enabled]' role='dimension' type='nominal' />
       <column caption='Metrics Level' datatype='integer' hidden='true' name='[metrics_level]' role='measure' type='quantitative' />
       <column datatype='boolean' hidden='true' name='[mixed_content_enabled]' role='dimension' type='nominal' />
+      <column aggregation='Sum' datatype='integer' hidden='true' name='[modified_by_user_id]' role='dimension' type='ordinal' />
       <column datatype='string' hidden='true' name='[name (Data Source Owner (_Users))]' role='dimension' type='nominal' />
       <column datatype='string' hidden='true' name='[name (Underlying Data Source Owner (_Users))]' role='dimension' type='nominal' />
       <column caption='Datasource Project Name (underlying)' datatype='string' name='[name (projects) #1]' role='dimension' type='nominal'>
@@ -6386,8 +6600,12 @@
         </desc>
       </column>
       <column datatype='boolean' hidden='true' name='[named_sharing_enabled]' role='dimension' type='nominal' />
+      <column datatype='boolean' hidden='true' name='[nested_projects_permissions_included (Underlying Data Source Project)]' role='dimension' type='nominal' />
+      <column datatype='boolean' hidden='true' name='[nested_projects_permissions_included]' role='dimension' type='nominal' />
       <column caption='Nonce' datatype='string' hidden='true' name='[nonce]' role='dimension' type='nominal' />
       <column caption='Notification Enabled' datatype='boolean' hidden='true' name='[notification_enabled]' role='dimension' type='nominal' />
+      <column datatype='boolean' hidden='true' name='[notify_site_admins_on_throttle]' role='dimension' type='nominal' />
+      <column datatype='boolean' hidden='true' name='[obfuscation_enabled]' role='dimension' type='nominal' />
       <column aggregation='Sum' caption='Owner Id (Projects) #1' datatype='integer' hidden='true' name='[owner_id (projects) #1]' role='dimension' type='ordinal' />
       <column aggregation='Sum' caption='Datasource Project Owner ID' datatype='integer' name='[owner_id (projects)]' role='dimension' type='ordinal'>
         <desc>
@@ -6549,6 +6767,7 @@
       <column datatype='boolean' hidden='true' name='[viz_in_tooltip_enabled]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[viz_recs_enabled]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[viz_recs_username_enabled]' role='dimension' type='nominal' />
+      <column datatype='boolean' hidden='true' name='[web_editing_enabled]' role='dimension' type='nominal' />
       <column datatype='integer' hidden='true' name='[web_extraction_enabled]' role='measure' type='quantitative' />
       <column-instance column='[Datasource Data Engine Extracts]' derivation='None' name='[none:Datasource Data Engine Extracts:nk]' pivot='key' type='nominal' />
       <column-instance column='[Datasource Is Certified (underlying)]' derivation='None' name='[none:Datasource Is Certified (underlying):nk]' pivot='key' type='nominal' />
@@ -6573,10 +6792,12 @@
         <folder-item name='[username]' type='field' />
       </folder>
       <folder name='Data Source' role='dimensions'>
+        <folder-item name='[Datasource Created At]' type='field' />
         <folder-item name='[Datasource DB Class]' type='field' />
         <folder-item name='[Datasource DB Name]' type='field' />
         <folder-item name='[Datasource Data Engine Extracts]' type='field' />
         <folder-item name='[Datasource Extracts Refreshed At (copy)]' type='field' />
+        <folder-item name='[Datasource Extracts Refreshed At (local) (copy)]' type='field' />
         <folder-item name='[Datasource Extracts Refreshed At]' type='field' />
         <folder-item name='[Datasource Has Extract]' type='field' />
         <folder-item name='[Datasource ID]' type='field' />
@@ -6586,6 +6807,7 @@
         <folder-item name='[Datasource LUID (copy)]' type='field' />
         <folder-item name='[Datasource LUID]' type='field' />
         <folder-item name='[Datasource Last Published At (copy)]' type='field' />
+        <folder-item name='[Datasource Last Published At (local) (copy)]' type='field' />
         <folder-item name='[Datasource Name]' type='field' />
         <folder-item name='[Datasource Owner ID]' type='field' />
         <folder-item name='[Datasource Project ID]' type='field' />
@@ -6593,6 +6815,7 @@
         <folder-item name='[Datasource Repository URL]' type='field' />
         <folder-item name='[Datasource Site ID]' type='field' />
         <folder-item name='[Datasource Table Name]' type='field' />
+        <folder-item name='[Datasource Updated At]' type='field' />
         <folder-item name='[Is Embedded in Workbook]' type='field' />
         <folder-item name='[References Published Data Source]' type='field' />
         <folder-item name='[data_connection_id]' type='field' />
@@ -6677,7 +6900,7 @@
         <folder-item name='[refreshable_extracts]' type='field' />
         <folder-item name='[repository_url]' type='field' />
       </folder>
-      <layout dim-ordering='alphabetic' dim-percentage='0.307443' measure-ordering='alphabetic' measure-percentage='0.658576' parameter-percentage='0.0339806' show-structure='false' user-set-layout='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.449827' measure-ordering='alphabetic' measure-percentage='0.477509' parameter-percentage='0.0726644' show-structure='false' user-set-layout='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:Is Embedded in Workbook:nk]' type='palette'>
@@ -7581,7 +7804,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='1' />
       <simple-id uuid='{DD1800B8-688C-41B4-B7C9-12DA66993C7E}' />
     </window>
     <window class='worksheet' hidden='true' name='Certified Data Sources' tab-color='#a65200'>
@@ -7780,5 +8003,7 @@
     </window>
   </windows>
   <thumbnails>
+    <thumbnail height='192' name='TS Data Connections' width='192'>
+    </thumbnail>
   </thumbnails>
 </workbook>
