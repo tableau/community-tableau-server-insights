@@ -4080,7 +4080,7 @@
         </desc>
       </column>
       <column caption='Item Hyperlink - Default Page' datatype='string' name='[Item Hyperlink - Schedules (copy)]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;views&apos; + &apos;/&apos; + [Calculation_2861230120700179]&#13;&#10;END' scope-isolation='false' />
+        <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;Flow&apos; THEN &apos;flows&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;views&apos; + &apos;/&apos; + [Calculation_2861230120700179]&#13;&#10;END' scope-isolation='false' />
         <desc>
           <formatted-text>
             <run>Full URL to view the datasource, workbook, or view on Tableau Server.</run>
@@ -4088,7 +4088,7 @@
         </desc>
       </column>
       <column caption='Item Hyperlink - Details' datatype='string' name='[Item Refresh Schedule Hyperlink (copy)]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([View Workbook Id])&#13;&#10;END + &apos;/details&apos;' scope-isolation='false' />
+        <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;Flow&apos; THEN &apos;flows&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([View Workbook Id])&#13;&#10;END + &apos;/details&apos;' scope-isolation='false' />
         <desc>
           <formatted-text>
             <run>Full URL to view the Details page of the datasource or workbook on Tableau Server.</run>
@@ -4096,7 +4096,7 @@
         </desc>
       </column>
       <column caption='Item Hyperlink - Schedules' datatype='string' name='[Item Web Hyperlink (copy 2)]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([View Workbook Id])&#13;&#10;END + &apos;/extractRefreshes&apos;' scope-isolation='false' />
+        <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)]) + &apos;/extractRefreshes&apos;&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id]) + &apos;/extractRefreshes&apos;&#13;&#10;    WHEN &apos;View&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([View Workbook Id]) + &apos;/extractRefreshes&apos;&#13;&#10;    WHEN &apos;Flows&apos; THEN &apos;flows&apos; + &apos;/&apos; + STR([Id]) + &apos;/scheduledTasks&apos;&#13;&#10;END' scope-isolation='false' />
         <desc>
           <formatted-text>
             <run>Full URL to view the Extract Schedule page for this datasource or workbook on Tableau Server.</run>
@@ -4104,7 +4104,7 @@
         </desc>
       </column>
       <column caption='Item Hyperlink - Download' datatype='string' name='[Item Web Hyperlink (copy)]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='[Item Hyperlink - Root URL (copy)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.tds&apos;&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.twb&apos;&#13;&#10;    WHEN &apos;View&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.twb&apos;&#13;&#10;END' scope-isolation='false' />
+        <calculation class='tableau' formula='[Item Hyperlink - Root URL (copy)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.tds&apos;&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.twb&apos;&#13;&#10;    WHEN &apos;View&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.twb&apos;&#13;&#10;    WHEN &apos;Flow&apos; THEN &apos;flows&apos; + &apos;/&apos; + [LUID (copy)] + &apos;.tflx&apos;&#13;&#10;END' scope-isolation='false' />
         <desc>
           <formatted-text>
             <run>Full URL to download the datasource or workbook from Tableau Server.</run>
@@ -4906,7 +4906,7 @@
         <folder-item name='[storage_limit]' type='field' />
         <folder-item name='[storage_quota]' type='field' />
       </folder>
-      <layout dim-ordering='alphabetic' dim-percentage='0.456198' measure-ordering='alphabetic' measure-percentage='0.429752' parameter-percentage='0.11405' show-structure='false' user-set-layout='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.66789' measure-ordering='alphabetic' measure-percentage='0.143119' parameter-percentage='0.188991' show-structure='false' user-set-layout='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
@@ -4984,15 +4984,31 @@
         <param name='target' value='TS Content' />
       </command>
     </action>
+    <action caption='Download Flow' name='[Action4]'>
+      <source datasource='postgres.42726.578910810182' type='datasource'>
+        <exclude-sheet name='Published Content Summary' />
+        <exclude-sheet name='Top Authors' />
+        <exclude-sheet name='Your Content' />
+      </source>
+      <link caption='' expression='&lt;[Item Web Hyperlink (copy)]&gt;' />
+    </action>
     <datasources>
       <datasource caption='TS Content' name='postgres.42726.578910810182' />
     </datasources>
     <datasource-dependencies datasource='postgres.42726.578910810182'>
       <column caption='Item Hyperlink - Default Page' datatype='string' name='[Item Hyperlink - Schedules (copy)]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;views&apos; + &apos;/&apos; + [Calculation_2861230120700179]&#13;&#10;END' scope-isolation='false' />
+        <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;Flow&apos; THEN &apos;flows&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;views&apos; + &apos;/&apos; + [Calculation_2861230120700179]&#13;&#10;END' scope-isolation='false' />
         <desc>
           <formatted-text>
             <run>Full URL to view the datasource, workbook, or view on Tableau Server.</run>
+          </formatted-text>
+        </desc>
+      </column>
+      <column caption='Item Hyperlink - Download' datatype='string' name='[Item Web Hyperlink (copy)]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[Item Hyperlink - Root URL (copy)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.tds&apos;&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.twb&apos;&#13;&#10;    WHEN &apos;View&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + [Root Repository URL] + &apos;.twb&apos;&#13;&#10;    WHEN &apos;Flow&apos; THEN &apos;flows&apos; + &apos;/&apos; + [LUID (copy)] + &apos;.tflx&apos;&#13;&#10;END' scope-isolation='false' />
+        <desc>
+          <formatted-text>
+            <run>Full URL to download the datasource or workbook from Tableau Server.</run>
           </formatted-text>
         </desc>
       </column>
@@ -5342,7 +5358,7 @@
               </desc>
             </column>
             <column caption='Item Hyperlink - Default Page' datatype='string' name='[Item Hyperlink - Schedules (copy)]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;views&apos; + &apos;/&apos; + [Calculation_2861230120700179]&#13;&#10;END' scope-isolation='false' />
+              <calculation class='tableau' formula='[Item Hyperlink - Schedules (copy 2)] +&#13;&#10;CASE [Type]&#13;&#10;    WHEN &apos;Datasource&apos; THEN &apos;datasources&apos; + &apos;/&apos; + STR([id (Custom SQL Query)])&#13;&#10;    WHEN &apos;Workbook&apos; THEN &apos;workbooks&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;Flow&apos; THEN &apos;flows&apos; + &apos;/&apos; + STR([Id])&#13;&#10;    WHEN &apos;View&apos; THEN &apos;views&apos; + &apos;/&apos; + [Calculation_2861230120700179]&#13;&#10;END' scope-isolation='false' />
               <desc>
                 <formatted-text>
                   <run>Full URL to view the datasource, workbook, or view on Tableau Server.</run>
