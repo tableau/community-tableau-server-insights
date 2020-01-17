@@ -36,6 +36,7 @@ Use this chart to determine what version of each data source you need, based on 
   <td class=xl67 width=68 style='width:51pt'>2019.1</td>
   <td class=xl67 width=68 style='width:51pt'>2019.2</td>
   <td class=xl67 width=68 style='width:51pt'>2019.3</td>
+  <td class=xl67 width=68 style='width:51pt'>2019.4</td>
  </tr>
  
 <tr height=20 style='height:15.0pt'>
@@ -80,6 +81,10 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.02</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_content</td>
@@ -105,6 +110,10 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>01.02</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -160,6 +169,10 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.02</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_events</td>
@@ -201,6 +214,10 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.02</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_users</td>
@@ -230,6 +247,10 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>01.02</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -285,6 +306,10 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>02.02</span></a></td>
  </tr>
  <![endif]>
 </table>
@@ -300,14 +325,14 @@ Use this chart to determine what version of each data source you need, based on 
 
 4. Extract the data, if you wish. Here are recommendations for whether and how each data source should be extracted:
 
-|    Data   Source          |    Extract                                 |
-|---------------------------|--------------------------------------------|
-|    TS Content             |    Full Extract                            |
-|    TS Events              |    Incremental Extract (on Event Id field) |
-|    TS Background Tasks    |    Live                                    |
-|    TS Users               |    Full Extract                            |
-|    TS Web Requests        |    Incremental Extract (on Id field)       |
-|    TS Data Connections    |    Live                                    |
+|    Data   Source          |    Extract                                 |    Retention                               |
+|---------------------------|--------------------------------------------|--------------------------------------------|
+|    TS Content             |    Full Extract                            |    All items that currently exist       |
+|    TS Events              |    Incremental Extract (on Event Id field) |    180 days, but configurable using **wgserver.audit_history_expiration_days** |
+|    TS Background Tasks    |    Live                                    |    30 days, but configurable using **purge.jobs.retention_days** |
+|    TS Users               |    Full Extract                            |    All users that currently exist   |
+|    TS Web Requests        |    Incremental Extract (on Id field)       |    7 days, but configurable using **tsm maintenance cleanup --http-requests-table-retention**   |
+|    TS Data Connections    |    Live                                    |    All data connections that currently exist   |
 
 5. If row-level security is required, edit the User Filter calculation as appropriate, and add the field to a data source filter for the value of "true".
 

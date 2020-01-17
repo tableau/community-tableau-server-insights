@@ -10,8 +10,8 @@
   <datasources>
     <datasource hasconnection='false' inline='true' name='Parameters' version='10.2'>
       <aliases enabled='yes' />
-      <column alias='Pacific Daylight Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
-        <calculation class='tableau' formula='-7' />
+      <column alias='Pacific Standard Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-8'>
+        <calculation class='tableau' formula='-8' />
         <aliases>
           <alias key='-10' value='Hawaii Standard Time' />
           <alias key='-9' value='Alaska Standard Time' />
@@ -75,6 +75,13 @@
           <member alias='Argentina Standard Time' value='-3' />
           <member alias='Brazil Eastern Time' value='-3' />
           <member alias='Central African Time' value='-1' />
+        </members>
+      </column>
+      <column caption='Tableau Server Protocol' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;https&quot;'>
+        <calculation class='tableau' formula='&quot;https&quot;' />
+        <members>
+          <member value='&quot;https&quot;' />
+          <member value='&quot;http&quot;' />
         </members>
       </column>
       <column caption='Tableau Server Name' datatype='string' name='[Workbook Display Tabs Parameter]' param-domain-type='any' role='measure' type='nominal' value='&quot;yourservername&quot;'>
@@ -6161,7 +6168,7 @@
         </desc>
       </column>
       <column caption='Item Hyperlink - Root URL' datatype='string' hidden='true' name='[Item Hyperlink - Schedules (copy 2)]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='// Root URL for the Tableau server, with content details to be appended in other calcs&#13;&#10;&#13;&#10;&apos;http://&apos; + [Parameters].[Workbook Display Tabs Parameter] + &apos;/#/&apos; +&#13;&#10;IF [name (sites)] = &apos;Default&apos; THEN &apos;&apos;&#13;&#10;    ELSE &apos;site/&apos; + [url_namespace] + &apos;/&apos;&#13;&#10;END' scope-isolation='false' />
+        <calculation class='tableau' formula='// Root URL for the Tableau server, with content details to be appended in other calcs&#13;&#10;&#13;&#10;[Parameters].[Parameter 2] + &apos;://&apos; + [Parameters].[Workbook Display Tabs Parameter] + &apos;/#/&apos; +&#13;&#10;IF [name (sites)] = &apos;Default&apos; THEN &apos;&apos;&#13;&#10;    ELSE &apos;site/&apos; + [url_namespace] + &apos;/&apos;&#13;&#10;END' scope-isolation='false' />
         <desc>
           <formatted-text>
             <run>Full URL to view the datasource or workbook on Tableau Server.</run>
@@ -6893,7 +6900,7 @@
         <folder-item name='[refreshable_extracts]' type='field' />
         <folder-item name='[repository_url]' type='field' />
       </folder>
-      <layout dim-ordering='alphabetic' dim-percentage='0.513841' measure-ordering='alphabetic' measure-percentage='0.323529' parameter-percentage='0.16263' show-structure='false' user-set-layout='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.826506' measure-ordering='alphabetic' measure-percentage='0.0658635' parameter-percentage='0.107631' show-structure='false' user-set-layout='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:Is Embedded in Workbook:nk]' type='palette'>
@@ -6937,8 +6944,8 @@
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
       <datasource-dependencies datasource='Parameters'>
-        <column alias='Pacific Daylight Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
-          <calculation class='tableau' formula='-7' />
+        <column alias='Pacific Standard Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-8'>
+          <calculation class='tableau' formula='-8' />
           <aliases>
             <alias key='-10' value='Hawaii Standard Time' />
             <alias key='-9' value='Alaska Standard Time' />
@@ -6968,6 +6975,9 @@
               <run>The timezone to display (local) dates in.&#10;&#10;Note that functionally, this is simply an integer value representing the number of hours to offset from UTC, which dates in the Tableau Server Repository are stored in. This means that it will not necessarily be accurate for timezones with Daylight Savings in place.</run>
             </formatted-text>
           </desc>
+        </column>
+        <column caption='Tableau Server Protocol' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;https&quot;'>
+          <calculation class='tableau' formula='&quot;https&quot;' />
         </column>
         <column caption='Tableau Server Name' datatype='string' name='[Workbook Display Tabs Parameter]' param-domain-type='any' role='measure' type='nominal' value='&quot;yourservername&quot;'>
           <calculation class='tableau' formula='&quot;yourservername&quot;' />
@@ -7121,6 +7131,9 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
+            <column caption='Tableau Server Protocol' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;https&quot;'>
+              <calculation class='tableau' formula='&quot;https&quot;' />
+            </column>
             <column caption='Tableau Server Name' datatype='string' name='[Workbook Display Tabs Parameter]' param-domain-type='any' role='measure' type='nominal' value='&quot;yourservername&quot;'>
               <calculation class='tableau' formula='&quot;yourservername&quot;' />
               <desc>
@@ -7155,7 +7168,7 @@
               </desc>
             </column>
             <column caption='Item Hyperlink - Root URL' datatype='string' hidden='true' name='[Item Hyperlink - Schedules (copy 2)]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='// Root URL for the Tableau server, with content details to be appended in other calcs&#13;&#10;&#13;&#10;&apos;http://&apos; + [Parameters].[Workbook Display Tabs Parameter] + &apos;/#/&apos; +&#13;&#10;IF [name (sites)] = &apos;Default&apos; THEN &apos;&apos;&#13;&#10;    ELSE &apos;site/&apos; + [url_namespace] + &apos;/&apos;&#13;&#10;END' scope-isolation='false' />
+              <calculation class='tableau' formula='// Root URL for the Tableau server, with content details to be appended in other calcs&#13;&#10;&#13;&#10;[Parameters].[Parameter 2] + &apos;://&apos; + [Parameters].[Workbook Display Tabs Parameter] + &apos;/#/&apos; +&#13;&#10;IF [name (sites)] = &apos;Default&apos; THEN &apos;&apos;&#13;&#10;    ELSE &apos;site/&apos; + [url_namespace] + &apos;/&apos;&#13;&#10;END' scope-isolation='false' />
               <desc>
                 <formatted-text>
                   <run>Full URL to view the datasource or workbook on Tableau Server.</run>
@@ -7349,6 +7362,9 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
+            <column caption='Tableau Server Protocol' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;https&quot;'>
+              <calculation class='tableau' formula='&quot;https&quot;' />
+            </column>
             <column caption='Tableau Server Name' datatype='string' name='[Workbook Display Tabs Parameter]' param-domain-type='any' role='measure' type='nominal' value='&quot;yourservername&quot;'>
               <calculation class='tableau' formula='&quot;yourservername&quot;' />
               <desc>
@@ -7382,7 +7398,7 @@
               </desc>
             </column>
             <column caption='Item Hyperlink - Root URL' datatype='string' hidden='true' name='[Item Hyperlink - Schedules (copy 2)]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='// Root URL for the Tableau server, with content details to be appended in other calcs&#13;&#10;&#13;&#10;&apos;http://&apos; + [Parameters].[Workbook Display Tabs Parameter] + &apos;/#/&apos; +&#13;&#10;IF [name (sites)] = &apos;Default&apos; THEN &apos;&apos;&#13;&#10;    ELSE &apos;site/&apos; + [url_namespace] + &apos;/&apos;&#13;&#10;END' scope-isolation='false' />
+              <calculation class='tableau' formula='// Root URL for the Tableau server, with content details to be appended in other calcs&#13;&#10;&#13;&#10;[Parameters].[Parameter 2] + &apos;://&apos; + [Parameters].[Workbook Display Tabs Parameter] + &apos;/#/&apos; +&#13;&#10;IF [name (sites)] = &apos;Default&apos; THEN &apos;&apos;&#13;&#10;    ELSE &apos;site/&apos; + [url_namespace] + &apos;/&apos;&#13;&#10;END' scope-isolation='false' />
               <desc>
                 <formatted-text>
                   <run>Full URL to view the datasource or workbook on Tableau Server.</run>
@@ -7632,7 +7648,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='1' />
+      <active id='17' />
     </window>
     <window class='worksheet' hidden='true' name='Certified Data Sources' tab-color='#a65200'>
       <cards>
@@ -7825,7 +7841,5 @@
     </window>
   </windows>
   <thumbnails>
-    <thumbnail height='192' name='TS Data Connections' width='192'>
-    </thumbnail>
   </thumbnails>
 </workbook>

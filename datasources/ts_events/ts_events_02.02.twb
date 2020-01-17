@@ -17,7 +17,7 @@
   <datasources>
     <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
       <aliases enabled='yes' />
-      <column alias='Pacific Daylight Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
+      <column alias='Pacific Standard Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
         <calculation class='tableau' formula='-7' />
         <aliases>
           <alias key='-10' value='Hawaii Standard Time' />
@@ -17160,7 +17160,7 @@
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
       <datasource-dependencies datasource='Parameters'>
-        <column alias='Pacific Daylight Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
+        <column alias='Pacific Standard Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
           <calculation class='tableau' formula='-7' />
           <aliases>
             <alias key='-10' value='Hawaii Standard Time' />
@@ -17236,7 +17236,7 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column alias='Pacific Daylight Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
+            <column alias='Pacific Standard Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
               <calculation class='tableau' formula='-7' />
               <aliases>
                 <alias key='-10' value='Hawaii Standard Time' />
@@ -17441,7 +17441,7 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column alias='Pacific Daylight Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
+            <column alias='Pacific Standard Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
               <calculation class='tableau' formula='-7' />
               <aliases>
                 <alias key='-10' value='Hawaii Standard Time' />
@@ -17704,7 +17704,7 @@
         <datasource caption='TS Events' name='TS Events_9.3' />
       </datasources>
       <datasource-dependencies datasource='Parameters'>
-        <column alias='Pacific Daylight Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
+        <column alias='Pacific Standard Time' caption='Timezone' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='-7'>
           <calculation class='tableau' formula='-7' />
           <aliases>
             <alias key='-10' value='Hawaii Standard Time' />
