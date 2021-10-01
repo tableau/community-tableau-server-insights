@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="30055554-f043-4c50-b0ed-6b04a62358e6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_03.01.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="929">
+              <caret line="8618" column="31" selection-start-line="8618" selection-start-column="31" selection-end-line="8618" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_content/ts_content_03.01.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="10105" column="31" selection-start-line="10105" selection-start-column="31" selection-end-line="10105" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_data_connections/ts_data_connections_03.01.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="8646" column="31" selection-start-line="8646" selection-start-column="31" selection-end-line="8646" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_events/ts_events_03.01.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="22024" column="31" selection-start-line="22024" selection-start-column="31" selection-end-line="22024" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_users/ts_users_03.01.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="7060" column="31" selection-start-line="7060" selection-start-column="31" selection-end-line="7060" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_web_requests/ts_web_requests_03.01.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11625">
+              <caret line="8334" column="14" selection-start-line="8334" selection-start-column="14" selection-end-line="8334" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_01.02.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83062">
+              <caret line="4886" column="118" selection-start-line="4886" selection-start-column="118" selection-end-line="4886" selection-end-column="118" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_content/ts_content_02.02.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65977">
+              <caret line="3881" column="27" selection-start-line="3881" selection-start-column="27" selection-end-line="3881" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_02.02.twb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121244">
+              <caret line="7132" column="16" selection-start-line="7132" selection-start-column="16" selection-end-line="7132" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LICENSE">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>.01.twb</find>
+      <find>unused</find>
+      <find>namespace</find>
+      <find>Version</find>
+      <find>TS Background Tasks</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_02.twb" />
+        <option value="$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_01.twb" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/datasources/ts_web_requests/ts_web_requests_03.01.twb" />
+        <option value="$PROJECT_DIR$/datasources/ts_users/ts_users_03.01.twb" />
+        <option value="$PROJECT_DIR$/datasources/ts_events/ts_events_03.01.twb" />
+        <option value="$PROJECT_DIR$/datasources/ts_data_connections/ts_data_connections_03.01.twb" />
+        <option value="$PROJECT_DIR$/datasources/ts_content/ts_content_03.01.twb" />
+        <option value="$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_03.01.twb" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/community-tableau-server-insights.iml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-3" />
+    <option name="width" value="130" />
+    <option name="height" value="35" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="community-tableau-server-insights" type="b2602c69:ProjectViewProjectNode" />
+              <item name="community-tableau-server-insights" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="GitLabConfigurableProvider" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="community-tableau-server-insights" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="community-tableau-server-insights" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="community-tableau-server-insights" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30055554-f043-4c50-b0ed-6b04a62358e6" name="Default Changelist" comment="" />
+      <created>1572277228887</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572277228887</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Adding readme">
+      <created>1572452871288</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572452871288</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adding .twbs, compatibility matrix">
+      <created>1572635546949</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572635546950</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Removing compatibility matrix embed, switching to link">
+      <created>1572636012655</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572636012655</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Compatibility matrix adjustment, link fix">
+      <created>1572637186303</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572637186303</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Switched compatibility matrix to a simple table for usability.">
+      <created>1573234385879</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573234385880</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Clarified where to go for help.">
+      <created>1573235277575</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1573235277575</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed issues link">
+      <created>1573235359257</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1573235359257</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed extract recommendation">
+      <created>1573235405309</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1573235405309</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fixed extract recommendation">
+      <created>1573246475353</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1573246475353</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added Version field #14&#10;Stripped &quot;/sheets&quot; from Item Repository URL when the item is a view #12&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10">
+      <created>1574372498699</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1574372498699</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added Version field #14&#10;Stripped &quot;/sheets&quot; from Item Repository URL when the item is a view #12&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10&#10;Added Project Owner information #15&#10;Refactored perms / user filter field for 01 version #16">
+      <created>1574380579423</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1574380579423</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10">
+      <created>1574440527541</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1574440527541</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added Version field #14&#10;Updated User Filter methodology to be consistent with newer versions #16&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10">
+      <created>1574440611189</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1574440611189</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10&#10;Refactored permission data and User Filter for consistency with 02 version #16&#10;Add data source project owner info #18">
+      <created>1574456470405</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1574456470405</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10">
+      <created>1574456490738</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1574456490738</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Removed thumbnails">
+      <created>1574456513667</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1574456513667</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Updating for general version revisions #9&#10;Slightly re-branding title">
+      <created>1574712556260</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1574712556260</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10&#10;Updated User Filter for consistency with ther data sources #16&#10;Remove &quot;/sheets&quot; from Repository URL fields in TS Events #12">
+      <created>1576862893074</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1576862893074</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added Version field #14&#10;Hid new fields #9&#10;Forced values for all LUID fields to lowercase #8&#10;Added additional Site fields for consistency #10&#10;Updated User Filter for consistency with other data sources #16&#10;Fixed Site Role calculation for Viewer role #17">
+      <created>1576869686967</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1576869686967</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Hid new fields #9&#10;Add Tableau Server Protocol parameter / fix root hyperlink URL (no number)&#10;Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Updated User Filter for consistency with other data sources #16&#10;Add a starter sheet to TS Web Requests #2&#10;Clarify &quot;vud&quot; action type in TS Web Requests enhancement #1">
+      <created>1576886288391</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1576886288391</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Hid new fields #9&#10;Added &quot;Updated At&quot; field to TS Data Connections #3">
+      <created>1577485319952</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1577485319952</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Hid new fields #9">
+      <created>1577485604488</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1577485604488</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Include Flows in Hyperlink URLs #23">
+      <created>1578586739425</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1578586739425</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Adding Tableau Server Protocol parameter to TS Data Connections&#10;Correcting PDT timezone settings to PST for consistency&#10;Updating compatibility matrix for 2019.4">
+      <created>1579286712147</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1579286712147</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="3456" height="1416" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09801053" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917532" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.95962316" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50351083" side_tool="true" visible="true" weight="0.12392829" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49648917" visible="true" weight="0.12392829" />
+      <window_info anchor="bottom" id="GitLabIntegration" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Removing compatibility matrix embed, switching to link" />
+    <MESSAGE value="Compatibility matrix adjustment, link fix" />
+    <MESSAGE value="Switched compatibility matrix to a simple table for usability." />
+    <MESSAGE value="Clarified where to go for help." />
+    <MESSAGE value="fixed issues link" />
+    <MESSAGE value="fixed extract recommendation" />
+    <MESSAGE value="Added Version field #14&#10;Stripped &quot;/sheets&quot; from Item Repository URL when the item is a view #12&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10" />
+    <MESSAGE value="Added Version field #14&#10;Stripped &quot;/sheets&quot; from Item Repository URL when the item is a view #12&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10&#10;Added Project Owner information #15&#10;Refactored perms / user filter field for 01 version #16" />
+    <MESSAGE value="Added Version field #14&#10;Updated User Filter methodology to be consistent with newer versions #16&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10" />
+    <MESSAGE value="Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10&#10;Refactored permission data and User Filter for consistency with 02 version #16&#10;Add data source project owner info #18" />
+    <MESSAGE value="Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10" />
+    <MESSAGE value="Removed thumbnails" />
+    <MESSAGE value="Updating for general version revisions #9&#10;Slightly re-branding title" />
+    <MESSAGE value="testing hook to remove thumbnails" />
+    <MESSAGE value="Test thumbnail removal hook" />
+    <MESSAGE value="Testing thumbnail removal hook" />
+    <MESSAGE value="Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Hid new fields #9&#10;Added additional Site fields for consistency #10&#10;Updated User Filter for consistency with ther data sources #16&#10;Remove &quot;/sheets&quot; from Repository URL fields in TS Events #12" />
+    <MESSAGE value="Added Version field #14&#10;Hid new fields #9&#10;Forced values for all LUID fields to lowercase #8&#10;Added additional Site fields for consistency #10&#10;Updated User Filter for consistency with other data sources #16&#10;Fixed Site Role calculation for Viewer role #17" />
+    <MESSAGE value="Hid new fields #9&#10;Add Tableau Server Protocol parameter / fix root hyperlink URL (no number)&#10;Added Version field #14&#10;Forced values for all LUID fields to lowercase #8&#10;Updated User Filter for consistency with other data sources #16&#10;Add a starter sheet to TS Web Requests #2&#10;Clarify &quot;vud&quot; action type in TS Web Requests enhancement #1" />
+    <MESSAGE value="Hid new fields #9&#10;Added &quot;Updated At&quot; field to TS Data Connections #3" />
+    <MESSAGE value="Hid new fields #9" />
+    <MESSAGE value="Include Flows in Hyperlink URLs #23" />
+    <MESSAGE value="Adding Tableau Server Protocol parameter to TS Data Connections&#10;Correcting PDT timezone settings to PST for consistency&#10;Updating compatibility matrix for 2019.4" />
+    <MESSAGE value="testing addition of project hierarchy data" />
+    <MESSAGE value="•&#9;All / Multiple:&#10;&#9;Added metadata on Collections (TS Content, TS Events, TS Users) #53&#10;&#9;Added metadata on Metrics (TS Content, TS Events, TS Users, TS Background Tasks) #33&#10;&#9;Incorporate new Web Authoring event into added in 2021.1 (TS Content, TS Events, TS Users) #59&#10;&#9;Updated &quot;Site Role&quot; with improved logic (with thanks to @thechadd) #30&#10;&#9;Version field updated to 03.01&#10;&#10;•&#9;TS Events&#10;&#9;Added &quot;details&quot; field #57&#10;&#9;Refactored Historical Item Revision for consistency (should now match revision history from UI) #58&#10;&#10;•&#9;TS Content&#10;&#9;Fixed error in &quot;User Filter&quot; calculation #51&#10;&#9;Added projects as top-level item type #4&#10;&#9;Add extract encryption status field #35&#10;&#9;Add &quot;controlled_permissions_enabled&quot; field #19&#10;&#9;Add data_engine_extracts field for Flows #36&#10;&#9;Expanded &quot;access counts&quot; to include a broader set of interactions (web edit, download, export)&#10;&#9;&#10;•&#9;TS Web Requests&#10;&#9;Fixed incorrect Duration for requests (no longer rounds, and precision increased to milliseconds--thanks to @rk2511) #56&#10;&#10;•&#9;TS Background Tasks&#10;&#9;Improved Data Alerts information and added several fields, populated hyperlinks #39&#10;&#9;Added field &quot;Increment Date&quot; that should be used for incremental refreshes, with field &quot;Is Max Record&quot; added as a data source filter.&#10;&#9;Added job creator information #24&#10;&#9;Account for &quot;Cancelled&quot; tasks #32&#10;&#9;Identifying suspended extract refresh failures #41&#10;&#9;Fixed Item Owner info for subscriptions #48" />
+    <option name="LAST_COMMIT_MESSAGE" value="•&#9;All / Multiple:&#10;&#9;Added metadata on Collections (TS Content, TS Events, TS Users) #53&#10;&#9;Added metadata on Metrics (TS Content, TS Events, TS Users, TS Background Tasks) #33&#10;&#9;Incorporate new Web Authoring event into added in 2021.1 (TS Content, TS Events, TS Users) #59&#10;&#9;Updated &quot;Site Role&quot; with improved logic (with thanks to @thechadd) #30&#10;&#9;Version field updated to 03.01&#10;&#10;•&#9;TS Events&#10;&#9;Added &quot;details&quot; field #57&#10;&#9;Refactored Historical Item Revision for consistency (should now match revision history from UI) #58&#10;&#10;•&#9;TS Content&#10;&#9;Fixed error in &quot;User Filter&quot; calculation #51&#10;&#9;Added projects as top-level item type #4&#10;&#9;Add extract encryption status field #35&#10;&#9;Add &quot;controlled_permissions_enabled&quot; field #19&#10;&#9;Add data_engine_extracts field for Flows #36&#10;&#9;Expanded &quot;access counts&quot; to include a broader set of interactions (web edit, download, export)&#10;&#9;&#10;•&#9;TS Web Requests&#10;&#9;Fixed incorrect Duration for requests (no longer rounds, and precision increased to milliseconds--thanks to @rk2511) #56&#10;&#10;•&#9;TS Background Tasks&#10;&#9;Improved Data Alerts information and added several fields, populated hyperlinks #39&#10;&#9;Added field &quot;Increment Date&quot; that should be used for incremental refreshes, with field &quot;Is Max Record&quot; added as a data source filter.&#10;&#9;Added job creator information #24&#10;&#9;Account for &quot;Cancelled&quot; tasks #32&#10;&#9;Identifying suspended extract refresh failures #41&#10;&#9;Fixed Item Owner info for subscriptions #48" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="245">
+            <caret line="136" selection-start-line="136" selection-end-line="136" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_content/ts_content_01.02.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_01.02.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83062">
+          <caret line="4886" column="118" selection-start-line="4886" selection-start-column="118" selection-end-line="4886" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_content/ts_content_02.02.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65977">
+          <caret line="3881" column="27" selection-start-line="3881" selection-start-column="27" selection-end-line="3881" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_02.02.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121244">
+          <caret line="7132" column="16" selection-start-line="7132" selection-start-column="16" selection-end-line="7132" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_web_requests/ts_web_requests_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11625">
+          <caret line="8334" column="14" selection-start-line="8334" selection-start-column="14" selection-end-line="8334" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_users/ts_users_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="7060" column="31" selection-start-line="7060" selection-start-column="31" selection-end-line="7060" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_events/ts_events_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="22024" column="31" selection-start-line="22024" selection-start-column="31" selection-end-line="22024" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_data_connections/ts_data_connections_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="8646" column="31" selection-start-line="8646" selection-start-column="31" selection-end-line="8646" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_content/ts_content_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="10105" column="31" selection-start-line="10105" selection-start-column="31" selection-end-line="10105" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="929">
+          <caret line="8618" column="31" selection-start-line="8618" selection-start-column="31" selection-end-line="8618" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

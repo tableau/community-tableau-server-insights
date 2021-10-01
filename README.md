@@ -1,4 +1,4 @@
-# Tableau Server Insights
+TS Background Tasks# Tableau Server Insights
 
 [![Community Supported](https://img.shields.io/badge/Support%20Level-Community%20Supported-457387.svg)](https://www.tableau.com/support-levels-it-and-developer-tools)
 
@@ -26,17 +26,9 @@ Use this chart to determine what version of each data source you need, based on 
  <col width=64 span=16143 style='width:48pt'>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 width=148 style='height:15.0pt;width:111pt'></td>
-  <td class=xl67 width=68 style='width:51pt'>10.2</td>
-  <td class=xl67 width=68 style='width:51pt'>10.3</td>
-  <td class=xl67 width=68 style='width:51pt'>10.4</td>
-  <td class=xl67 width=68 style='width:51pt'>10.5</td>
-  <td class=xl67 width=68 style='width:51pt'>2018.1</td>
-  <td class=xl67 width=68 style='width:51pt'>2018.2</td>
-  <td class=xl67 width=68 style='width:51pt'>2018.3</td>
-  <td class=xl67 width=68 style='width:51pt'>2019.1</td>
-  <td class=xl67 width=68 style='width:51pt'>2019.2</td>
-  <td class=xl67 width=68 style='width:51pt'>2019.3</td>
-  <td class=xl67 width=68 style='width:51pt'>2019.4</td>
+  <td class=xl67 width=150 style='width:51pt'>10.2 - 2018.3</td>
+  <td class=xl67 width=150 style='width:51pt'>2019.1 - 2020.3</td>
+  <td class=xl67 width=150 style='width:51pt'>2020.4+</td>
  </tr>
  
 <tr height=20 style='height:15.0pt'>
@@ -46,66 +38,16 @@ Use this chart to determine what version of each data source you need, based on 
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>01.02</span></a></td>
   <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
   <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.02.twb"
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
+  0'>03.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_content</td>
-  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
-  mso-ignore:visibility'>&nbsp;</u></td>
-  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
-  mso-ignore:visibility'>&nbsp;</u></td>
-  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
-  mso-ignore:visibility'>&nbsp;</u></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -115,17 +57,9 @@ Use this chart to determine what version of each data source you need, based on 
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.02.twb"
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
+  0'>03.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_data_connections</td>
@@ -134,70 +68,16 @@ Use this chart to determine what version of each data source you need, based on 
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.02.twb"
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
+  0'>03.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_events</td>
-  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
-  mso-ignore:visibility'>&nbsp;</u></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -207,42 +87,12 @@ Use this chart to determine what version of each data source you need, based on 
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.02.twb"
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
+  0'>03.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_users</td>
-  <td class=xl68 style='border-top:none'><u style='visibility:hidden;
-  mso-ignore:visibility'>&nbsp;</u></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -252,17 +102,9 @@ Use this chart to determine what version of each data source you need, based on 
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.02.twb"
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
+  0'>03.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_web_requests</td>
@@ -271,45 +113,13 @@ Use this chart to determine what version of each data source you need, based on 
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>02.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.02.twb"
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>02.02</span></a></td>
+  0'>03.01</span></a></td>
  </tr>
  <![endif]>
 </table>
@@ -329,7 +139,7 @@ Use this chart to determine what version of each data source you need, based on 
 |---------------------------|--------------------------------------------|--------------------------------------------|
 |    TS Content             |    Full Extract                            |    All items that currently exist       |
 |    TS Events              |    Incremental Extract (on Event Id field) |    180 days, but configurable using **wgserver.audit_history_expiration_days** |
-|    TS Background Tasks    |    Live                                    |    30 days, but configurable using **purge.jobs.retention_days** |
+|    TS Background Tasks    |    Live / Incremental Extract (On Increment Date field)                                   |    30 days, but configurable using **purge.jobs.retention_days** |
 |    TS Users               |    Full Extract                            |    All users that currently exist   |
 |    TS Web Requests        |    Incremental Extract (on Id field)       |    7 days, but configurable using **tsm maintenance cleanup --http-requests-table-retention**   |
 |    TS Data Connections    |    Live                                    |    All data connections that currently exist   |
@@ -364,4 +174,8 @@ Documentation for these data sources exists in the first page of the workbook th
 
 ## Issues
 
-We prefer questions to be sent to the [Tableau Community site](https://community.tableau.com/community/forums/server-administration). However, if you are the technical type and have a detailed bug you want to file, or a feature you'd like to see, you can send us an [issue](https://github.com/tableau/community-tableau-server-insights/issues) here on GitHub.
+Feel free to ask questions or let us know of problems you see to one of these three places:
+
+1. The [Tableau Community site](https://community.tableau.com/community/forums/server-administration)
+2. Create an [Issue](https://github.com/tableau/community-tableau-server-insights/issues) here on GitHub
+3. Join us on Tableau's [DataDev](https://tableau-datadev.slack.com/archives/C016Y0C85GU) Slack workspace
