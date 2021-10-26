@@ -16,7 +16,7 @@ Getting real, useful data out of Tableau Server is difficult-more difficult than
 
 ### Compatibility
 
-Use this chart to determine what version of each data source you need, based on the version of Tableau Server that you are running. Click the link to go to the appropriate .twb file.
+Use this chart to determine what version of each data source you need, based on the version of Tableau Server that you are running. Right-click the appropriate link and select "Save link as" to download the .twb file.
 
 <table border=0 cellpadding=0 cellspacing=0 width=1033980 style='border-collapse:
  collapse;table-layout:fixed;width:775485pt'>
