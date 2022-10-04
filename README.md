@@ -178,4 +178,4 @@ Feel free to ask questions or let us know of problems you see to one of these th
 
 1. The [Tableau Community site](https://community.tableau.com/community/forums/server-administration)
 2. Create an [Issue](https://github.com/tableau/community-tableau-server-insights/issues) here on GitHub
-3. Join us on Tableau's [DataDev](https://tableau-datadev.slack.com/archives/C016Y0C85GU) Slack workspace
+3. Join the [Tableau Developer program](https://www.tableau.com/developer), then ask questions in the Slack workspace
