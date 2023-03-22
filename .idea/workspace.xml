@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30055554-f043-4c50-b0ed-6b04a62358e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_03.01.twb" beforeDir="false" afterPath="$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_03.01.twb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasources/ts_content/ts_content_03.01.twb" beforeDir="false" afterPath="$PROJECT_DIR$/datasources/ts_content/ts_content_03.01.twb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasources/ts_data_connections/ts_data_connections_03.01.twb" beforeDir="false" afterPath="$PROJECT_DIR$/datasources/ts_data_connections/ts_data_connections_03.01.twb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasources/ts_events/ts_events_03.01.twb" beforeDir="false" afterPath="$PROJECT_DIR$/datasources/ts_events/ts_events_03.01.twb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasources/ts_users/ts_users_03.01.twb" beforeDir="false" afterPath="$PROJECT_DIR$/datasources/ts_users/ts_users_03.01.twb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +15,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_03.01.twb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="943">
+            <state relative-caret-position="146489">
               <caret line="8617" column="14" selection-start-line="8617" selection-start-column="14" selection-end-line="8617" selection-end-column="14" />
             </state>
           </provider>
@@ -28,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datasources/ts_content/ts_content_03.01.twb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="926">
-              <caret line="10103" column="12" lean-forward="true" selection-start-line="10103" selection-start-column="12" selection-end-line="10103" selection-end-column="12" />
+            <state relative-caret-position="171751">
+              <caret line="10103" column="12" selection-start-line="10103" selection-start-column="12" selection-end-line="10103" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -37,7 +33,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datasources/ts_data_connections/ts_data_connections_03.01.twb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="929">
+            <state relative-caret-position="146965">
               <caret line="8645" column="14" selection-start-line="8645" selection-start-column="14" selection-end-line="8645" selection-end-column="14" />
             </state>
           </provider>
@@ -46,7 +42,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datasources/ts_events/ts_events_03.01.twb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="929">
+            <state relative-caret-position="374391">
               <caret line="22023" column="14" selection-start-line="22023" selection-start-column="14" selection-end-line="22023" selection-end-column="14" />
             </state>
           </provider>
@@ -55,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datasources/ts_users/ts_users_03.01.twb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="929">
+            <state relative-caret-position="120003">
               <caret line="7059" column="14" selection-start-line="7059" selection-start-column="14" selection-end-line="7059" selection-end-column="14" />
             </state>
           </provider>
@@ -64,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/datasources/ts_web_requests/ts_web_requests_03.01.twb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="963">
-              <caret line="8335" column="17" lean-forward="true" selection-start-line="8335" selection-start-column="17" selection-end-line="8335" selection-end-column="17" />
+            <state relative-caret-position="1035">
+              <caret line="8335" column="17" selection-start-line="8335" selection-start-column="17" selection-end-line="8335" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -151,9 +147,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-3" />
-    <option name="width" value="130" />
-    <option name="height" value="35" />
+    <option name="x" value="-2" />
+    <option name="width" value="324" />
+    <option name="height" value="88" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -408,14 +404,20 @@
       <option name="project" value="LOCAL" />
       <updated>1633105140881</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="quick-fixing thumbnail issue">
+      <created>1633108205385</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1633108205385</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="3456" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09801053" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.043300174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -427,8 +429,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.95962316" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50351083" side_tool="true" visible="true" weight="0.12392829" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49648917" visible="true" weight="0.12392829" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.5038034" side_tool="true" visible="true" weight="0.06780982" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4961966" visible="true" weight="0.06780982" />
       <window_info anchor="bottom" id="GitLabIntegration" order="11" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -488,7 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Removing compatibility matrix embed, switching to link" />
     <MESSAGE value="Compatibility matrix adjustment, link fix" />
     <MESSAGE value="Switched compatibility matrix to a simple table for usability." />
     <MESSAGE value="Clarified where to go for help." />
@@ -513,7 +514,8 @@
     <MESSAGE value="Adding Tableau Server Protocol parameter to TS Data Connections&#10;Correcting PDT timezone settings to PST for consistency&#10;Updating compatibility matrix for 2019.4" />
     <MESSAGE value="testing addition of project hierarchy data" />
     <MESSAGE value="•&#9;All / Multiple:&#10;&#9;Added metadata on Collections (TS Content, TS Events, TS Users) #53&#10;&#9;Added metadata on Metrics (TS Content, TS Events, TS Users, TS Background Tasks) #33&#10;&#9;Incorporate new Web Authoring event into added in 2021.1 (TS Content, TS Events, TS Users) #59&#10;&#9;Updated &quot;Site Role&quot; with improved logic (with thanks to @thechadd) #30&#10;&#9;Version field updated to 03.01&#10;&#10;•&#9;TS Events&#10;&#9;Added &quot;details&quot; field #57&#10;&#9;Refactored Historical Item Revision for consistency (should now match revision history from UI) #58&#10;&#10;•&#9;TS Content&#10;&#9;Fixed error in &quot;User Filter&quot; calculation #51&#10;&#9;Added projects as top-level item type #4&#10;&#9;Add extract encryption status field #35&#10;&#9;Add &quot;controlled_permissions_enabled&quot; field #19&#10;&#9;Add data_engine_extracts field for Flows #36&#10;&#9;Expanded &quot;access counts&quot; to include a broader set of interactions (web edit, download, export)&#10;&#9;&#10;•&#9;TS Web Requests&#10;&#9;Fixed incorrect Duration for requests (no longer rounds, and precision increased to milliseconds--thanks to @rk2511) #56&#10;&#10;•&#9;TS Background Tasks&#10;&#9;Improved Data Alerts information and added several fields, populated hyperlinks #39&#10;&#9;Added field &quot;Increment Date&quot; that should be used for incremental refreshes, with field &quot;Is Max Record&quot; added as a data source filter.&#10;&#9;Added job creator information #24&#10;&#9;Account for &quot;Cancelled&quot; tasks #32&#10;&#9;Identifying suspended extract refresh failures #41&#10;&#9;Fixed Item Owner info for subscriptions #48" />
-    <option name="LAST_COMMIT_MESSAGE" value="•&#9;All / Multiple:&#10;&#9;Added metadata on Collections (TS Content, TS Events, TS Users) #53&#10;&#9;Added metadata on Metrics (TS Content, TS Events, TS Users, TS Background Tasks) #33&#10;&#9;Incorporate new Web Authoring event into added in 2021.1 (TS Content, TS Events, TS Users) #59&#10;&#9;Updated &quot;Site Role&quot; with improved logic (with thanks to @thechadd) #30&#10;&#9;Version field updated to 03.01&#10;&#10;•&#9;TS Events&#10;&#9;Added &quot;details&quot; field #57&#10;&#9;Refactored Historical Item Revision for consistency (should now match revision history from UI) #58&#10;&#10;•&#9;TS Content&#10;&#9;Fixed error in &quot;User Filter&quot; calculation #51&#10;&#9;Added projects as top-level item type #4&#10;&#9;Add extract encryption status field #35&#10;&#9;Add &quot;controlled_permissions_enabled&quot; field #19&#10;&#9;Add data_engine_extracts field for Flows #36&#10;&#9;Expanded &quot;access counts&quot; to include a broader set of interactions (web edit, download, export)&#10;&#9;&#10;•&#9;TS Web Requests&#10;&#9;Fixed incorrect Duration for requests (no longer rounds, and precision increased to milliseconds--thanks to @rk2511) #56&#10;&#10;•&#9;TS Background Tasks&#10;&#9;Improved Data Alerts information and added several fields, populated hyperlinks #39&#10;&#9;Added field &quot;Increment Date&quot; that should be used for incremental refreshes, with field &quot;Is Max Record&quot; added as a data source filter.&#10;&#9;Added job creator information #24&#10;&#9;Account for &quot;Cancelled&quot; tasks #32&#10;&#9;Identifying suspended extract refresh failures #41&#10;&#9;Fixed Item Owner info for subscriptions #48" />
+    <MESSAGE value="quick-fixing thumbnail issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="quick-fixing thumbnail issue" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -530,6 +532,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146489">
+          <caret line="8617" column="14" selection-start-line="8617" selection-start-column="14" selection-end-line="8617" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_content/ts_content_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171751">
+          <caret line="10103" column="12" selection-start-line="10103" selection-start-column="12" selection-end-line="10103" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_data_connections/ts_data_connections_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146965">
+          <caret line="8645" column="14" selection-start-line="8645" selection-start-column="14" selection-end-line="8645" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_events/ts_events_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374391">
+          <caret line="22023" column="14" selection-start-line="22023" selection-start-column="14" selection-end-line="22023" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasources/ts_users/ts_users_03.01.twb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120003">
+          <caret line="7059" column="14" selection-start-line="7059" selection-start-column="14" selection-end-line="7059" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -561,45 +598,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasources/ts_content/ts_content_03.01.twb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="926">
-          <caret line="10103" column="12" lean-forward="true" selection-start-line="10103" selection-start-column="12" selection-end-line="10103" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasources/ts_data_connections/ts_data_connections_03.01.twb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="929">
-          <caret line="8645" column="14" selection-start-line="8645" selection-start-column="14" selection-end-line="8645" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasources/ts_background_tasks/ts_background_tasks_03.01.twb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="8617" column="14" selection-start-line="8617" selection-start-column="14" selection-end-line="8617" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasources/ts_events/ts_events_03.01.twb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="929">
-          <caret line="22023" column="14" selection-start-line="22023" selection-start-column="14" selection-end-line="22023" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasources/ts_users/ts_users_03.01.twb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="929">
-          <caret line="7059" column="14" selection-start-line="7059" selection-start-column="14" selection-end-line="7059" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datasources/ts_web_requests/ts_web_requests_03.01.twb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="963">
-          <caret line="8335" column="17" lean-forward="true" selection-start-line="8335" selection-start-column="17" selection-end-line="8335" selection-end-column="17" />
+        <state relative-caret-position="1035">
+          <caret line="8335" column="17" selection-start-line="8335" selection-start-column="17" selection-end-line="8335" selection-end-column="17" />
         </state>
       </provider>
     </entry>
