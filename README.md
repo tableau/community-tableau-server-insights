@@ -26,17 +26,13 @@ Use this chart to determine what version of each data source you need, based on 
  <col width=64 span=16143 style='width:48pt'>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 width=148 style='height:15.0pt;width:111pt'></td>
-  <td class=xl67 width=150 style='width:51pt'>10.2 - 2018.3</td>
   <td class=xl67 width=150 style='width:51pt'>2019.1 - 2020.3</td>
-  <td class=xl67 width=150 style='width:51pt'>2020.4+</td>
+  <td class=xl67 width=150 style='width:51pt'>2020.4 - 2022.4</td>
+  <td class=xl67 width=150 style='width:51pt'>2023.1+</td>
  </tr>
  
 <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_background_tasks</td>
-  <td class=xl68><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -45,13 +41,13 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>03.01</span></a></td>
+  <td class=xl68><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_background_tasks/ts_background_tasks_04.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>04.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_content</td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -60,13 +56,13 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>03.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_04.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>04.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_data_connections</td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -75,13 +71,13 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>03.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_data_connections/ts_data_connections_04.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>04.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_events</td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -90,13 +86,13 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>03.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_events/ts_events_04.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>04.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_users</td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -105,13 +101,13 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>03.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_users/ts_users_04.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>04.01</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_web_requests</td>
-  <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_01.02.twb"
-  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>01.02</span></a></td>
   <td class=xl68 style='border-top:none'><a
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_02.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
@@ -120,6 +116,10 @@ Use this chart to determine what version of each data source you need, based on 
   href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_03.01.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>03.01</span></a></td>
+  <td class=xl68 style='border-top:none'><a
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_04.01.twb"
+  target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
+  0'>04.01</span></a></td>
  </tr>
  <![endif]>
 </table>
@@ -139,7 +139,7 @@ Use this chart to determine what version of each data source you need, based on 
 |---------------------------|--------------------------------------------|--------------------------------------------|
 |    TS Content             |    Full Extract                            |    All items that currently exist       |
 |    TS Events              |    Incremental Extract (on Event Id field) |    180 days, but configurable using **wgserver.audit_history_expiration_days** |
-|    TS Background Tasks    |    Live / Incremental Extract (On Increment Date field)                                   |    30 days, but configurable using **purge.jobs.retention_days** |
+|    TS Background Tasks    |    Live / Incremental Extract (On Increment Date field) - Add "Is Max Record" = True to Data Source Filter                                   |    30 days, but configurable using **purge.jobs.retention_days** |
 |    TS Users               |    Full Extract                            |    All users that currently exist   |
 |    TS Web Requests        |    Incremental Extract (on Id field)       |    7 days, but configurable using **tsm maintenance cleanup --http-requests-table-retention**   |
 |    TS Data Connections    |    Live                                    |    All data connections that currently exist   |
