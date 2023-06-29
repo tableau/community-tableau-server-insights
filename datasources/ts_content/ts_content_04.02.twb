@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<!-- build 20211.23.0208.1356                               -->
-<workbook source-build='2021.1.24 (20211.23.0208.1356)' source-platform='win' upgrade-extracts='false' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<!-- build 20222.22.0916.1526                               -->
+<workbook source-build='2022.2.2 (20222.22.0916.1526)' source-platform='win' upgrade-extracts='false' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
@@ -189,9 +190,15 @@ Note that functionally, this is simply an integer value representing the number 
                         </clause>
                         <relation join='left' type='join'>
                           <clause type='join'>
-                            <expression op='='>
-                              <expression op='[Content].[Project Id]' />
-                              <expression op='[Projects].[project_id]' />
+                            <expression op='AND'>
+                              <expression op='='>
+                                <expression op='[Content].[Project Id]' />
+                                <expression op='[Projects].[project_id]' />
+                              </expression>
+                              <expression op='='>
+                                <expression op='[Content].[Site Id]' />
+                                <expression op='[Projects].[project_site_id]' />
+                              </expression>
                             </expression>
                           </clause>
                           <relation join='left' type='join'>
@@ -1147,17 +1154,19 @@ GROUP BY &#13;
     ts.taggable_id ,&#13;
     ts.taggable_type</relation>
                           </relation>
-                          <relation connection='postgres.42726.578910810182leaf' name='Projects' type='text'>-- This query grabs project information in the new world of nested foldering!&#13;
+                          <relation connection='postgres.42726.578910810182leaf' name='Projects' type='text'>-- This query grabs project information, along with parent project hierarchy information&#13;
+&#13;
 &#13;
 WITH RECURSIVE project_hierarchy AS (&#13;
     SELECT&#13;
         p.name                                          AS project_name ,&#13;
         p.id                                            AS project_id ,&#13;
         p.luid                                          AS project_luid ,&#13;
+        p.site_id                                       AS project_site_id ,&#13;
         su.friendly_name                                AS project_owner_friendly_name ,&#13;
         su.name                                         AS project_owner_system_name ,&#13;
         su.email                                        AS project_owner_email ,&#13;
-        p.parent_project_id ,&#13;
+        pc.project_id                                   AS parent_project_id ,&#13;
         CAST(NULL as varchar)                           AS parent_project_name ,&#13;
         CAST(NULL as varchar)                           AS parent_project_owner_friendly_name ,&#13;
         CAST(NULL as varchar)                           AS parent_project_owner_system_name ,&#13;
@@ -1169,16 +1178,21 @@ WITH RECURSIVE project_hierarchy AS (&#13;
         p.controlling_permissions_project_id ,&#13;
         p.nested_projects_permissions_included&#13;
     FROM projects p&#13;
+        LEFT JOIN projects_contents pc&#13;
+            ON p.id = pc.content_id&#13;
+                AND p.site_id = pc.site_id&#13;
+                AND pc.content_type = &apos;project&apos;&#13;
         LEFT JOIN users u&#13;
             ON p.owner_id = u.id&#13;
         LEFT JOIN system_users su&#13;
             ON u.system_user_id = su.id&#13;
-    WHERE p.parent_project_id IS NULL&#13;
+    WHERE pc.project_id IS NULL&#13;
     UNION ALL&#13;
     SELECT&#13;
         p.name                                          AS project_name ,&#13;
         p.id                                            AS project_id ,&#13;
         p.luid                                          AS project_luid ,&#13;
+        p.site_id                                       AS project_site_id ,&#13;
         su.friendly_name                                AS project_owner_friendly_name ,&#13;
         su.name                                         AS project_owner_system_name ,&#13;
         su.email                                        AS project_owner_email ,&#13;
@@ -1198,12 +1212,16 @@ WITH RECURSIVE project_hierarchy AS (&#13;
         p.controlling_permissions_project_id ,&#13;
         p.nested_projects_permissions_included&#13;
     FROM projects p&#13;
+        LEFT JOIN projects_contents pc&#13;
+            ON p.id = pc.content_id&#13;
+                AND p.site_id = pc.site_id&#13;
+                AND pc.content_type = &apos;project&apos;&#13;
         LEFT JOIN users u&#13;
             ON p.owner_id = u.id&#13;
         LEFT JOIN system_users su&#13;
             ON u.system_user_id = su.id&#13;
         INNER JOIN project_hierarchy ph&#13;
-            ON ph.project_id = p.parent_project_id&#13;
+            ON ph.project_id = pc.project_id&#13;
 )&#13;
 &#13;
 SELECT *&#13;
@@ -1425,9 +1443,15 @@ GROUP BY&#13;
                         </clause>
                         <relation join='left' type='join'>
                           <clause type='join'>
-                            <expression op='='>
-                              <expression op='[Content].[Project Id]' />
-                              <expression op='[Projects].[project_id]' />
+                            <expression op='AND'>
+                              <expression op='='>
+                                <expression op='[Content].[Project Id]' />
+                                <expression op='[Projects].[project_id]' />
+                              </expression>
+                              <expression op='='>
+                                <expression op='[Content].[Site Id]' />
+                                <expression op='[Projects].[project_site_id]' />
+                              </expression>
                             </expression>
                           </clause>
                           <relation join='left' type='join'>
@@ -2383,17 +2407,19 @@ GROUP BY &#13;
     ts.taggable_id ,&#13;
     ts.taggable_type</relation>
                           </relation>
-                          <relation connection='postgres.42726.578910810182leaf' name='Projects' type='text'>-- This query grabs project information in the new world of nested foldering!&#13;
+                          <relation connection='postgres.42726.578910810182leaf' name='Projects' type='text'>-- This query grabs project information, along with parent project hierarchy information&#13;
+&#13;
 &#13;
 WITH RECURSIVE project_hierarchy AS (&#13;
     SELECT&#13;
         p.name                                          AS project_name ,&#13;
         p.id                                            AS project_id ,&#13;
         p.luid                                          AS project_luid ,&#13;
+        p.site_id                                       AS project_site_id ,&#13;
         su.friendly_name                                AS project_owner_friendly_name ,&#13;
         su.name                                         AS project_owner_system_name ,&#13;
         su.email                                        AS project_owner_email ,&#13;
-        p.parent_project_id ,&#13;
+        pc.project_id                                   AS parent_project_id ,&#13;
         CAST(NULL as varchar)                           AS parent_project_name ,&#13;
         CAST(NULL as varchar)                           AS parent_project_owner_friendly_name ,&#13;
         CAST(NULL as varchar)                           AS parent_project_owner_system_name ,&#13;
@@ -2405,16 +2431,21 @@ WITH RECURSIVE project_hierarchy AS (&#13;
         p.controlling_permissions_project_id ,&#13;
         p.nested_projects_permissions_included&#13;
     FROM projects p&#13;
+        LEFT JOIN projects_contents pc&#13;
+            ON p.id = pc.content_id&#13;
+                AND p.site_id = pc.site_id&#13;
+                AND pc.content_type = &apos;project&apos;&#13;
         LEFT JOIN users u&#13;
             ON p.owner_id = u.id&#13;
         LEFT JOIN system_users su&#13;
             ON u.system_user_id = su.id&#13;
-    WHERE p.parent_project_id IS NULL&#13;
+    WHERE pc.project_id IS NULL&#13;
     UNION ALL&#13;
     SELECT&#13;
         p.name                                          AS project_name ,&#13;
         p.id                                            AS project_id ,&#13;
         p.luid                                          AS project_luid ,&#13;
+        p.site_id                                       AS project_site_id ,&#13;
         su.friendly_name                                AS project_owner_friendly_name ,&#13;
         su.name                                         AS project_owner_system_name ,&#13;
         su.email                                        AS project_owner_email ,&#13;
@@ -2434,12 +2465,16 @@ WITH RECURSIVE project_hierarchy AS (&#13;
         p.controlling_permissions_project_id ,&#13;
         p.nested_projects_permissions_included&#13;
     FROM projects p&#13;
+        LEFT JOIN projects_contents pc&#13;
+            ON p.id = pc.content_id&#13;
+                AND p.site_id = pc.site_id&#13;
+                AND pc.content_type = &apos;project&apos;&#13;
         LEFT JOIN users u&#13;
             ON p.owner_id = u.id&#13;
         LEFT JOIN system_users su&#13;
             ON u.system_user_id = su.id&#13;
         INNER JOIN project_hierarchy ph&#13;
-            ON ph.project_id = p.parent_project_id&#13;
+            ON ph.project_id = pc.project_id&#13;
 )&#13;
 &#13;
 SELECT *&#13;
@@ -2807,6 +2842,7 @@ GROUP BY&#13;
           <map key='[project_owner_friendly_name]' value='[Projects].[project_owner_friendly_name]' />
           <map key='[project_owner_system_name]' value='[Projects].[project_owner_system_name]' />
           <map key='[project_path]' value='[Projects].[project_path]' />
+          <map key='[project_site_id]' value='[Projects].[project_site_id]' />
           <map key='[protected_password]' value='[system_users].[protected_password]' />
           <map key='[protected_password_bad_format]' value='[system_users].[protected_password_bad_format]' />
           <map key='[protocol_cache_lifetime]' value='[sites].[protocol_cache_lifetime]' />
@@ -4345,12 +4381,25 @@ GROUP BY&#13;
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>project_site_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[project_site_id]</local-name>
+            <parent-name>[Projects]</parent-name>
+            <remote-alias>project_site_id</remote-alias>
+            <ordinal>112</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>project_owner_friendly_name</remote-name>
             <remote-type>129</remote-type>
             <local-name>[project_owner_friendly_name]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>project_owner_friendly_name</remote-alias>
-            <ordinal>112</ordinal>
+            <ordinal>113</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4367,7 +4416,7 @@ GROUP BY&#13;
             <local-name>[project_owner_system_name]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>project_owner_system_name</remote-alias>
-            <ordinal>113</ordinal>
+            <ordinal>114</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4384,7 +4433,7 @@ GROUP BY&#13;
             <local-name>[project_owner_email]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>project_owner_email</remote-alias>
-            <ordinal>114</ordinal>
+            <ordinal>115</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4401,7 +4450,7 @@ GROUP BY&#13;
             <local-name>[parent_project_id (Custom SQL Query)]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>parent_project_id</remote-alias>
-            <ordinal>115</ordinal>
+            <ordinal>116</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4414,7 +4463,7 @@ GROUP BY&#13;
             <local-name>[parent_project_name]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>parent_project_name</remote-alias>
-            <ordinal>116</ordinal>
+            <ordinal>117</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -4431,7 +4480,7 @@ GROUP BY&#13;
             <local-name>[parent_project_owner_friendly_name]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>parent_project_owner_friendly_name</remote-alias>
-            <ordinal>117</ordinal>
+            <ordinal>118</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -4448,7 +4497,7 @@ GROUP BY&#13;
             <local-name>[parent_project_owner_system_name]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>parent_project_owner_system_name</remote-alias>
-            <ordinal>118</ordinal>
+            <ordinal>119</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -4465,7 +4514,7 @@ GROUP BY&#13;
             <local-name>[parent_project_owner_email]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>parent_project_owner_email</remote-alias>
-            <ordinal>119</ordinal>
+            <ordinal>120</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -4482,7 +4531,7 @@ GROUP BY&#13;
             <local-name>[project_level]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>project_level</remote-alias>
-            <ordinal>120</ordinal>
+            <ordinal>121</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4495,7 +4544,7 @@ GROUP BY&#13;
             <local-name>[top_level_project_name]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>top_level_project_name</remote-alias>
-            <ordinal>121</ordinal>
+            <ordinal>122</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4512,7 +4561,7 @@ GROUP BY&#13;
             <local-name>[project_path]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>project_path</remote-alias>
-            <ordinal>122</ordinal>
+            <ordinal>123</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4529,7 +4578,7 @@ GROUP BY&#13;
             <local-name>[controlled_permissions_enabled]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>controlled_permissions_enabled</remote-alias>
-            <ordinal>123</ordinal>
+            <ordinal>124</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4541,7 +4590,7 @@ GROUP BY&#13;
             <local-name>[controlling_permissions_project_id]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>controlling_permissions_project_id</remote-alias>
-            <ordinal>124</ordinal>
+            <ordinal>125</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4554,7 +4603,7 @@ GROUP BY&#13;
             <local-name>[nested_projects_permissions_included]</local-name>
             <parent-name>[Projects]</parent-name>
             <remote-alias>nested_projects_permissions_included</remote-alias>
-            <ordinal>125</ordinal>
+            <ordinal>126</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4566,7 +4615,7 @@ GROUP BY&#13;
             <local-name>[id (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>127</ordinal>
+            <ordinal>128</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4579,7 +4628,7 @@ GROUP BY&#13;
             <local-name>[name (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>128</ordinal>
+            <ordinal>129</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4596,7 +4645,7 @@ GROUP BY&#13;
             <local-name>[url_namespace]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>url_namespace</remote-alias>
-            <ordinal>129</ordinal>
+            <ordinal>130</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4613,7 +4662,7 @@ GROUP BY&#13;
             <local-name>[status]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>status</remote-alias>
-            <ordinal>130</ordinal>
+            <ordinal>131</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4630,7 +4679,7 @@ GROUP BY&#13;
             <local-name>[created_at (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>131</ordinal>
+            <ordinal>132</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -4642,7 +4691,7 @@ GROUP BY&#13;
             <local-name>[updated_at (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>132</ordinal>
+            <ordinal>133</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -4654,7 +4703,7 @@ GROUP BY&#13;
             <local-name>[user_quota]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>user_quota</remote-alias>
-            <ordinal>133</ordinal>
+            <ordinal>134</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4667,7 +4716,7 @@ GROUP BY&#13;
             <local-name>[content_admin_mode]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>content_admin_mode</remote-alias>
-            <ordinal>134</ordinal>
+            <ordinal>135</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4680,7 +4729,7 @@ GROUP BY&#13;
             <local-name>[storage_quota]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>storage_quota</remote-alias>
-            <ordinal>135</ordinal>
+            <ordinal>136</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -4693,7 +4742,7 @@ GROUP BY&#13;
             <local-name>[metrics_level]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>metrics_level</remote-alias>
-            <ordinal>136</ordinal>
+            <ordinal>137</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -4706,7 +4755,7 @@ GROUP BY&#13;
             <local-name>[status_reason]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>status_reason</remote-alias>
-            <ordinal>137</ordinal>
+            <ordinal>138</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -4723,7 +4772,7 @@ GROUP BY&#13;
             <local-name>[subscriptions_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>subscriptions_enabled</remote-alias>
-            <ordinal>138</ordinal>
+            <ordinal>139</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4735,7 +4784,7 @@ GROUP BY&#13;
             <local-name>[custom_subscription_footer]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>custom_subscription_footer</remote-alias>
-            <ordinal>139</ordinal>
+            <ordinal>140</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -4753,7 +4802,7 @@ GROUP BY&#13;
             <local-name>[custom_subscription_email]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>custom_subscription_email</remote-alias>
-            <ordinal>140</ordinal>
+            <ordinal>141</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -4771,7 +4820,7 @@ GROUP BY&#13;
             <local-name>[luid (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>luid</remote-alias>
-            <ordinal>141</ordinal>
+            <ordinal>142</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -4785,7 +4834,7 @@ GROUP BY&#13;
             <local-name>[query_limit]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>query_limit</remote-alias>
-            <ordinal>142</ordinal>
+            <ordinal>143</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4798,7 +4847,7 @@ GROUP BY&#13;
             <local-name>[authoring_disabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>authoring_disabled</remote-alias>
-            <ordinal>143</ordinal>
+            <ordinal>144</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4810,7 +4859,7 @@ GROUP BY&#13;
             <local-name>[sheet_image_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sheet_image_enabled</remote-alias>
-            <ordinal>144</ordinal>
+            <ordinal>145</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4822,7 +4871,7 @@ GROUP BY&#13;
             <local-name>[refresh_token_setting]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>refresh_token_setting</remote-alias>
-            <ordinal>145</ordinal>
+            <ordinal>146</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4835,22 +4884,9 @@ GROUP BY&#13;
             <local-name>[version_history_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>version_history_enabled</remote-alias>
-            <ordinal>146</ordinal>
+            <ordinal>147</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>content_version_limit</remote-name>
-            <remote-type>3</remote-type>
-            <local-name>[content_version_limit]</local-name>
-            <parent-name>[sites]</parent-name>
-            <remote-alias>content_version_limit</remote-alias>
-            <ordinal>147</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>10</precision>
             <contains-null>true</contains-null>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
@@ -4867,12 +4903,25 @@ GROUP BY&#13;
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>content_version_limit</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[content_version_limit]</local-name>
+            <parent-name>[sites]</parent-name>
+            <remote-alias>content_version_limit</remote-alias>
+            <ordinal>149</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Migrated Data]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>subscribe_others_enabled</remote-name>
             <remote-type>11</remote-type>
             <local-name>[subscribe_others_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>subscribe_others_enabled</remote-alias>
-            <ordinal>149</ordinal>
+            <ordinal>150</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4884,7 +4933,7 @@ GROUP BY&#13;
             <local-name>[lock_version (sites)]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>150</ordinal>
+            <ordinal>151</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -4897,7 +4946,7 @@ GROUP BY&#13;
             <local-name>[guest_access_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>guest_access_enabled</remote-alias>
-            <ordinal>151</ordinal>
+            <ordinal>152</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4909,7 +4958,7 @@ GROUP BY&#13;
             <local-name>[support_access_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>support_access_enabled</remote-alias>
-            <ordinal>152</ordinal>
+            <ordinal>153</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4921,7 +4970,7 @@ GROUP BY&#13;
             <local-name>[cache_warmup_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>cache_warmup_enabled</remote-alias>
-            <ordinal>153</ordinal>
+            <ordinal>154</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4933,7 +4982,7 @@ GROUP BY&#13;
             <local-name>[cache_warmup_threshold]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>cache_warmup_threshold</remote-alias>
-            <ordinal>154</ordinal>
+            <ordinal>155</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -4946,7 +4995,7 @@ GROUP BY&#13;
             <local-name>[data_alerts_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>data_alerts_enabled</remote-alias>
-            <ordinal>155</ordinal>
+            <ordinal>156</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4958,7 +5007,7 @@ GROUP BY&#13;
             <local-name>[allow_live_query_sync]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>allow_live_query_sync</remote-alias>
-            <ordinal>156</ordinal>
+            <ordinal>157</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4970,7 +5019,7 @@ GROUP BY&#13;
             <local-name>[commenting_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>commenting_enabled</remote-alias>
-            <ordinal>157</ordinal>
+            <ordinal>158</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4982,7 +5031,7 @@ GROUP BY&#13;
             <local-name>[self_service_schedules_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>self_service_schedules_enabled</remote-alias>
-            <ordinal>158</ordinal>
+            <ordinal>159</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -4994,7 +5043,7 @@ GROUP BY&#13;
             <local-name>[tier_interactor_capacity]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>tier_interactor_capacity</remote-alias>
-            <ordinal>159</ordinal>
+            <ordinal>160</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5007,7 +5056,7 @@ GROUP BY&#13;
             <local-name>[tier_basic_user_capacity]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>tier_basic_user_capacity</remote-alias>
-            <ordinal>160</ordinal>
+            <ordinal>161</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5020,7 +5069,7 @@ GROUP BY&#13;
             <local-name>[tier_author_capacity]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>tier_author_capacity</remote-alias>
-            <ordinal>161</ordinal>
+            <ordinal>162</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5033,7 +5082,7 @@ GROUP BY&#13;
             <local-name>[viz_in_tooltip_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>viz_in_tooltip_enabled</remote-alias>
-            <ordinal>162</ordinal>
+            <ordinal>163</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5045,7 +5094,7 @@ GROUP BY&#13;
             <local-name>[protocol_cache_lifetime]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>protocol_cache_lifetime</remote-alias>
-            <ordinal>163</ordinal>
+            <ordinal>164</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5058,7 +5107,7 @@ GROUP BY&#13;
             <local-name>[protocol_group_size_limit]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>protocol_group_size_limit</remote-alias>
-            <ordinal>164</ordinal>
+            <ordinal>165</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5071,7 +5120,7 @@ GROUP BY&#13;
             <local-name>[commenting_mentions_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>commenting_mentions_enabled</remote-alias>
-            <ordinal>165</ordinal>
+            <ordinal>166</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5083,7 +5132,7 @@ GROUP BY&#13;
             <local-name>[mixed_content_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>mixed_content_enabled</remote-alias>
-            <ordinal>166</ordinal>
+            <ordinal>167</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5095,7 +5144,7 @@ GROUP BY&#13;
             <local-name>[site_invite_notification_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>site_invite_notification_enabled</remote-alias>
-            <ordinal>167</ordinal>
+            <ordinal>168</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5107,7 +5156,7 @@ GROUP BY&#13;
             <local-name>[extract_encryption_mode]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>extract_encryption_mode</remote-alias>
-            <ordinal>168</ordinal>
+            <ordinal>169</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -5120,7 +5169,7 @@ GROUP BY&#13;
             <local-name>[flows_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>flows_enabled</remote-alias>
-            <ordinal>169</ordinal>
+            <ordinal>170</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5132,7 +5181,7 @@ GROUP BY&#13;
             <local-name>[materialized_views_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>materialized_views_enabled</remote-alias>
-            <ordinal>170</ordinal>
+            <ordinal>171</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5144,7 +5193,7 @@ GROUP BY&#13;
             <local-name>[allow_subscriptions_attach_pdf]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>allow_subscriptions_attach_pdf</remote-alias>
-            <ordinal>171</ordinal>
+            <ordinal>172</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5156,7 +5205,7 @@ GROUP BY&#13;
             <local-name>[materialized_views_mode]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>materialized_views_mode</remote-alias>
-            <ordinal>172</ordinal>
+            <ordinal>173</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -5169,7 +5218,7 @@ GROUP BY&#13;
             <local-name>[start_page_uri]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>start_page_uri</remote-alias>
-            <ordinal>173</ordinal>
+            <ordinal>174</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>5000</width>
@@ -5186,7 +5235,7 @@ GROUP BY&#13;
             <local-name>[afe_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>afe_enabled</remote-alias>
-            <ordinal>174</ordinal>
+            <ordinal>175</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5198,7 +5247,7 @@ GROUP BY&#13;
             <local-name>[sandbox_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sandbox_enabled</remote-alias>
-            <ordinal>175</ordinal>
+            <ordinal>176</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5210,7 +5259,7 @@ GROUP BY&#13;
             <local-name>[viz_recs_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>viz_recs_enabled</remote-alias>
-            <ordinal>176</ordinal>
+            <ordinal>177</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5222,7 +5271,7 @@ GROUP BY&#13;
             <local-name>[biometrics_mobile_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>biometrics_mobile_enabled</remote-alias>
-            <ordinal>177</ordinal>
+            <ordinal>178</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5234,7 +5283,7 @@ GROUP BY&#13;
             <local-name>[iba_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>iba_enabled</remote-alias>
-            <ordinal>178</ordinal>
+            <ordinal>179</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5246,7 +5295,7 @@ GROUP BY&#13;
             <local-name>[named_sharing_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>named_sharing_enabled</remote-alias>
-            <ordinal>179</ordinal>
+            <ordinal>180</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5258,7 +5307,7 @@ GROUP BY&#13;
             <local-name>[sandbox_storage_quota]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sandbox_storage_quota</remote-alias>
-            <ordinal>180</ordinal>
+            <ordinal>181</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -5271,7 +5320,7 @@ GROUP BY&#13;
             <local-name>[sandbox_datasources_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sandbox_datasources_enabled</remote-alias>
-            <ordinal>181</ordinal>
+            <ordinal>182</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5283,7 +5332,7 @@ GROUP BY&#13;
             <local-name>[sandbox_flows_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>sandbox_flows_enabled</remote-alias>
-            <ordinal>182</ordinal>
+            <ordinal>183</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5295,7 +5344,7 @@ GROUP BY&#13;
             <local-name>[cataloging_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>cataloging_enabled</remote-alias>
-            <ordinal>183</ordinal>
+            <ordinal>184</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5307,7 +5356,7 @@ GROUP BY&#13;
             <local-name>[derived_permissions_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>derived_permissions_enabled</remote-alias>
-            <ordinal>184</ordinal>
+            <ordinal>185</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5319,7 +5368,7 @@ GROUP BY&#13;
             <local-name>[viz_recs_username_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>viz_recs_username_enabled</remote-alias>
-            <ordinal>185</ordinal>
+            <ordinal>186</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5331,7 +5380,7 @@ GROUP BY&#13;
             <local-name>[user_visibility]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>user_visibility</remote-alias>
-            <ordinal>186</ordinal>
+            <ordinal>187</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5344,7 +5393,7 @@ GROUP BY&#13;
             <local-name>[request_access]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>request_access</remote-alias>
-            <ordinal>187</ordinal>
+            <ordinal>188</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5357,7 +5406,7 @@ GROUP BY&#13;
             <local-name>[ask_data_mode]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>ask_data_mode</remote-alias>
-            <ordinal>188</ordinal>
+            <ordinal>189</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -5375,7 +5424,7 @@ GROUP BY&#13;
             <local-name>[run_now_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>run_now_enabled</remote-alias>
-            <ordinal>189</ordinal>
+            <ordinal>190</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5387,7 +5436,7 @@ GROUP BY&#13;
             <local-name>[web_extraction_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>web_extraction_enabled</remote-alias>
-            <ordinal>190</ordinal>
+            <ordinal>191</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>5</precision>
@@ -5400,7 +5449,7 @@ GROUP BY&#13;
             <local-name>[metrics_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>metrics_enabled</remote-alias>
-            <ordinal>191</ordinal>
+            <ordinal>192</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5412,7 +5461,7 @@ GROUP BY&#13;
             <local-name>[web_editing_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>web_editing_enabled</remote-alias>
-            <ordinal>192</ordinal>
+            <ordinal>193</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5424,7 +5473,7 @@ GROUP BY&#13;
             <local-name>[notify_site_admins_on_throttle]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>notify_site_admins_on_throttle</remote-alias>
-            <ordinal>193</ordinal>
+            <ordinal>194</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5436,7 +5485,7 @@ GROUP BY&#13;
             <local-name>[obfuscation_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>obfuscation_enabled</remote-alias>
-            <ordinal>194</ordinal>
+            <ordinal>195</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5448,7 +5497,7 @@ GROUP BY&#13;
             <local-name>[flow_auto_save_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>flow_auto_save_enabled</remote-alias>
-            <ordinal>195</ordinal>
+            <ordinal>196</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5460,7 +5509,7 @@ GROUP BY&#13;
             <local-name>[time_zone]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>time_zone</remote-alias>
-            <ordinal>196</ordinal>
+            <ordinal>197</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -5478,7 +5527,7 @@ GROUP BY&#13;
             <local-name>[public_collections_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>public_collections_enabled</remote-alias>
-            <ordinal>197</ordinal>
+            <ordinal>198</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5490,7 +5539,7 @@ GROUP BY&#13;
             <local-name>[self_service_schedule_for_refresh_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>self_service_schedule_for_refresh_enabled</remote-alias>
-            <ordinal>198</ordinal>
+            <ordinal>199</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5502,7 +5551,7 @@ GROUP BY&#13;
             <local-name>[self_service_schedule_for_flow_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>self_service_schedule_for_flow_enabled</remote-alias>
-            <ordinal>199</ordinal>
+            <ordinal>200</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5514,7 +5563,7 @@ GROUP BY&#13;
             <local-name>[auto_suspend_refresh_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>auto_suspend_refresh_enabled</remote-alias>
-            <ordinal>200</ordinal>
+            <ordinal>201</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5526,7 +5575,7 @@ GROUP BY&#13;
             <local-name>[auto_suspend_refresh_inactivity_window]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>auto_suspend_refresh_inactivity_window</remote-alias>
-            <ordinal>201</ordinal>
+            <ordinal>202</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5539,7 +5588,7 @@ GROUP BY&#13;
             <local-name>[web_zone_content_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>web_zone_content_enabled</remote-alias>
-            <ordinal>202</ordinal>
+            <ordinal>203</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5551,7 +5600,7 @@ GROUP BY&#13;
             <local-name>[personal_space_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>personal_space_enabled</remote-alias>
-            <ordinal>203</ordinal>
+            <ordinal>204</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5563,7 +5612,7 @@ GROUP BY&#13;
             <local-name>[personal_space_storage_quota]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>personal_space_storage_quota</remote-alias>
-            <ordinal>204</ordinal>
+            <ordinal>205</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -5576,7 +5625,7 @@ GROUP BY&#13;
             <local-name>[tag_limit]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>tag_limit</remote-alias>
-            <ordinal>205</ordinal>
+            <ordinal>206</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5589,7 +5638,7 @@ GROUP BY&#13;
             <local-name>[einstein_in_flow_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>einstein_in_flow_enabled</remote-alias>
-            <ordinal>206</ordinal>
+            <ordinal>207</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5601,7 +5650,7 @@ GROUP BY&#13;
             <local-name>[explain_data_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>explain_data_enabled</remote-alias>
-            <ordinal>207</ordinal>
+            <ordinal>208</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5613,7 +5662,7 @@ GROUP BY&#13;
             <local-name>[linked_tasks_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>linked_tasks_enabled</remote-alias>
-            <ordinal>208</ordinal>
+            <ordinal>209</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5625,7 +5674,7 @@ GROUP BY&#13;
             <local-name>[linked_tasks_run_now_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>linked_tasks_run_now_enabled</remote-alias>
-            <ordinal>209</ordinal>
+            <ordinal>210</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5637,7 +5686,7 @@ GROUP BY&#13;
             <local-name>[dqw_subscriptions_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>dqw_subscriptions_enabled</remote-alias>
-            <ordinal>210</ordinal>
+            <ordinal>211</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5649,7 +5698,7 @@ GROUP BY&#13;
             <local-name>[flow_output_subscriptions_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>flow_output_subscriptions_enabled</remote-alias>
-            <ordinal>211</ordinal>
+            <ordinal>212</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5661,7 +5710,7 @@ GROUP BY&#13;
             <local-name>[flow_output_subscriptions_data_in_email_body_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>flow_output_subscriptions_data_in_email_body_enabled</remote-alias>
-            <ordinal>212</ordinal>
+            <ordinal>213</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5673,7 +5722,7 @@ GROUP BY&#13;
             <local-name>[flow_output_subscriptions_data_as_email_attachment_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>flow_output_subscriptions_data_as_email_attachment_enabled</remote-alias>
-            <ordinal>213</ordinal>
+            <ordinal>214</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5685,7 +5734,7 @@ GROUP BY&#13;
             <local-name>[flow_parameters_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>flow_parameters_enabled</remote-alias>
-            <ordinal>214</ordinal>
+            <ordinal>215</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5697,7 +5746,7 @@ GROUP BY&#13;
             <local-name>[flow_parameters_any_type_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>flow_parameters_any_type_enabled</remote-alias>
-            <ordinal>215</ordinal>
+            <ordinal>216</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5709,7 +5758,7 @@ GROUP BY&#13;
             <local-name>[admin_insights_publish_frequency]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>admin_insights_publish_frequency</remote-alias>
-            <ordinal>216</ordinal>
+            <ordinal>217</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -5722,7 +5771,7 @@ GROUP BY&#13;
             <local-name>[backgrounder_governance_default_limit_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>backgrounder_governance_default_limit_enabled</remote-alias>
-            <ordinal>217</ordinal>
+            <ordinal>218</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5734,7 +5783,7 @@ GROUP BY&#13;
             <local-name>[content_migration_tool_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>content_migration_tool_enabled</remote-alias>
-            <ordinal>218</ordinal>
+            <ordinal>219</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5746,7 +5795,7 @@ GROUP BY&#13;
             <local-name>[cmek_available]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>cmek_available</remote-alias>
-            <ordinal>219</ordinal>
+            <ordinal>220</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5758,7 +5807,7 @@ GROUP BY&#13;
             <local-name>[eas_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>eas_enabled</remote-alias>
-            <ordinal>220</ordinal>
+            <ordinal>221</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5770,7 +5819,7 @@ GROUP BY&#13;
             <local-name>[publish_to_salesforce_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>publish_to_salesforce_enabled</remote-alias>
-            <ordinal>221</ordinal>
+            <ordinal>222</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5782,7 +5831,7 @@ GROUP BY&#13;
             <local-name>[unrestricted_embedding_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>unrestricted_embedding_enabled</remote-alias>
-            <ordinal>222</ordinal>
+            <ordinal>223</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5794,7 +5843,7 @@ GROUP BY&#13;
             <local-name>[domain_allowlist]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>domain_allowlist</remote-alias>
-            <ordinal>223</ordinal>
+            <ordinal>224</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>10000</width>
@@ -5811,7 +5860,7 @@ GROUP BY&#13;
             <local-name>[mfa_enforcement_status]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>mfa_enforcement_status</remote-alias>
-            <ordinal>224</ordinal>
+            <ordinal>225</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>30</width>
@@ -5828,7 +5877,7 @@ GROUP BY&#13;
             <local-name>[data_change_discovery_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>data_change_discovery_enabled</remote-alias>
-            <ordinal>225</ordinal>
+            <ordinal>226</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5840,7 +5889,7 @@ GROUP BY&#13;
             <local-name>[metrics_snapshotting_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>metrics_snapshotting_enabled</remote-alias>
-            <ordinal>226</ordinal>
+            <ordinal>227</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5852,7 +5901,7 @@ GROUP BY&#13;
             <local-name>[metrics_snapshotting_time_zone]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>metrics_snapshotting_time_zone</remote-alias>
-            <ordinal>227</ordinal>
+            <ordinal>228</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -5870,7 +5919,7 @@ GROUP BY&#13;
             <local-name>[collections_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>collections_enabled</remote-alias>
-            <ordinal>228</ordinal>
+            <ordinal>229</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5882,7 +5931,7 @@ GROUP BY&#13;
             <local-name>[data_story_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>data_story_enabled</remote-alias>
-            <ordinal>229</ordinal>
+            <ordinal>230</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5894,7 +5943,7 @@ GROUP BY&#13;
             <local-name>[workflow_extension_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>workflow_extension_enabled</remote-alias>
-            <ordinal>230</ordinal>
+            <ordinal>231</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5906,7 +5955,7 @@ GROUP BY&#13;
             <local-name>[attribute_capture_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>attribute_capture_enabled</remote-alias>
-            <ordinal>231</ordinal>
+            <ordinal>232</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5918,7 +5967,7 @@ GROUP BY&#13;
             <local-name>[data_orientation_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>data_orientation_enabled</remote-alias>
-            <ordinal>232</ordinal>
+            <ordinal>233</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5930,7 +5979,7 @@ GROUP BY&#13;
             <local-name>[data_orientation_guest_users_enabled]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>data_orientation_guest_users_enabled</remote-alias>
-            <ordinal>233</ordinal>
+            <ordinal>234</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5942,7 +5991,7 @@ GROUP BY&#13;
             <local-name>[mfa_enforcement_legacy]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>mfa_enforcement_legacy</remote-alias>
-            <ordinal>234</ordinal>
+            <ordinal>235</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5954,7 +6003,7 @@ GROUP BY&#13;
             <local-name>[mfa_enforcement_exemption]</local-name>
             <parent-name>[sites]</parent-name>
             <remote-alias>mfa_enforcement_exemption</remote-alias>
-            <ordinal>235</ordinal>
+            <ordinal>236</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -5966,7 +6015,7 @@ GROUP BY&#13;
             <local-name>[alert_count]</local-name>
             <parent-name>[Alerts]</parent-name>
             <remote-alias>alert_count</remote-alias>
-            <ordinal>237</ordinal>
+            <ordinal>238</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -5979,7 +6028,7 @@ GROUP BY&#13;
             <local-name>[alert_recipient_count]</local-name>
             <parent-name>[Alerts]</parent-name>
             <remote-alias>alert_recipient_count</remote-alias>
-            <ordinal>238</ordinal>
+            <ordinal>239</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -5992,7 +6041,7 @@ GROUP BY&#13;
             <local-name>[item_id (Custom SQL Query)]</local-name>
             <parent-name>[Alerts]</parent-name>
             <remote-alias>item_id</remote-alias>
-            <ordinal>239</ordinal>
+            <ordinal>240</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6005,7 +6054,7 @@ GROUP BY&#13;
             <local-name>[item_type]</local-name>
             <parent-name>[Alerts]</parent-name>
             <remote-alias>item_type</remote-alias>
-            <ordinal>240</ordinal>
+            <ordinal>241</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6023,7 +6072,7 @@ GROUP BY&#13;
             <local-name>[id (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>id</remote-alias>
-            <ordinal>242</ordinal>
+            <ordinal>243</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6036,7 +6085,7 @@ GROUP BY&#13;
             <local-name>[name (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>name</remote-alias>
-            <ordinal>243</ordinal>
+            <ordinal>244</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6053,7 +6102,7 @@ GROUP BY&#13;
             <local-name>[email]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>email</remote-alias>
-            <ordinal>244</ordinal>
+            <ordinal>245</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6070,7 +6119,7 @@ GROUP BY&#13;
             <local-name>[hashed_password]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>hashed_password</remote-alias>
-            <ordinal>245</ordinal>
+            <ordinal>246</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6087,7 +6136,7 @@ GROUP BY&#13;
             <local-name>[salt]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>salt</remote-alias>
-            <ordinal>246</ordinal>
+            <ordinal>247</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6104,7 +6153,7 @@ GROUP BY&#13;
             <local-name>[sys]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>sys</remote-alias>
-            <ordinal>247</ordinal>
+            <ordinal>248</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -6116,7 +6165,7 @@ GROUP BY&#13;
             <local-name>[keychain]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>keychain</remote-alias>
-            <ordinal>248</ordinal>
+            <ordinal>249</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6134,7 +6183,7 @@ GROUP BY&#13;
             <local-name>[domain_id]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>domain_id</remote-alias>
-            <ordinal>249</ordinal>
+            <ordinal>250</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6147,7 +6196,7 @@ GROUP BY&#13;
             <local-name>[friendly_name]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>friendly_name</remote-alias>
-            <ordinal>250</ordinal>
+            <ordinal>251</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6164,7 +6213,7 @@ GROUP BY&#13;
             <local-name>[custom_display_name]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>custom_display_name</remote-alias>
-            <ordinal>251</ordinal>
+            <ordinal>252</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
@@ -6176,7 +6225,7 @@ GROUP BY&#13;
             <local-name>[activation_code]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>activation_code</remote-alias>
-            <ordinal>252</ordinal>
+            <ordinal>253</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6193,7 +6242,7 @@ GROUP BY&#13;
             <local-name>[activated_at]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>activated_at</remote-alias>
-            <ordinal>253</ordinal>
+            <ordinal>254</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -6205,7 +6254,7 @@ GROUP BY&#13;
             <local-name>[state]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>254</ordinal>
+            <ordinal>255</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6222,7 +6271,7 @@ GROUP BY&#13;
             <local-name>[admin_level]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>admin_level</remote-alias>
-            <ordinal>255</ordinal>
+            <ordinal>256</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6235,7 +6284,7 @@ GROUP BY&#13;
             <local-name>[created_at (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>created_at</remote-alias>
-            <ordinal>256</ordinal>
+            <ordinal>257</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -6247,7 +6296,7 @@ GROUP BY&#13;
             <local-name>[updated_at (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>updated_at</remote-alias>
-            <ordinal>257</ordinal>
+            <ordinal>258</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -6259,7 +6308,7 @@ GROUP BY&#13;
             <local-name>[deleted_at]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>deleted_at</remote-alias>
-            <ordinal>258</ordinal>
+            <ordinal>259</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -6271,7 +6320,7 @@ GROUP BY&#13;
             <local-name>[auth_user_id]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>auth_user_id</remote-alias>
-            <ordinal>259</ordinal>
+            <ordinal>260</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6288,7 +6337,7 @@ GROUP BY&#13;
             <local-name>[asset_key_id]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>asset_key_id</remote-alias>
-            <ordinal>260</ordinal>
+            <ordinal>261</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6301,7 +6350,7 @@ GROUP BY&#13;
             <local-name>[lock_version (system_users)]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>lock_version</remote-alias>
-            <ordinal>261</ordinal>
+            <ordinal>262</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6314,7 +6363,7 @@ GROUP BY&#13;
             <local-name>[last_password_update]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>last_password_update</remote-alias>
-            <ordinal>262</ordinal>
+            <ordinal>263</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -6326,7 +6375,7 @@ GROUP BY&#13;
             <local-name>[force_password_update]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>force_password_update</remote-alias>
-            <ordinal>263</ordinal>
+            <ordinal>264</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -6338,7 +6387,7 @@ GROUP BY&#13;
             <local-name>[last_failed_login]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>last_failed_login</remote-alias>
-            <ordinal>264</ordinal>
+            <ordinal>265</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
@@ -6350,7 +6399,7 @@ GROUP BY&#13;
             <local-name>[failed_login_attempts]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>failed_login_attempts</remote-alias>
-            <ordinal>265</ordinal>
+            <ordinal>266</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6363,7 +6412,7 @@ GROUP BY&#13;
             <local-name>[protected_password]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>protected_password</remote-alias>
-            <ordinal>266</ordinal>
+            <ordinal>267</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6380,7 +6429,7 @@ GROUP BY&#13;
             <local-name>[protected_password_bad_format]</local-name>
             <parent-name>[system_users]</parent-name>
             <remote-alias>protected_password_bad_format</remote-alias>
-            <ordinal>267</ordinal>
+            <ordinal>268</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>false</contains-null>
@@ -6392,7 +6441,7 @@ GROUP BY&#13;
             <local-name>[dummy_join_field]</local-name>
             <parent-name>[Server Admin Permissions]</parent-name>
             <remote-alias>dummy_join_field</remote-alias>
-            <ordinal>269</ordinal>
+            <ordinal>270</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6405,7 +6454,7 @@ GROUP BY&#13;
             <local-name>[server_admins_string]</local-name>
             <parent-name>[Server Admin Permissions]</parent-name>
             <remote-alias>server_admins_string</remote-alias>
-            <ordinal>270</ordinal>
+            <ordinal>271</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6423,7 +6472,7 @@ GROUP BY&#13;
             <local-name>[site_id (Benutzerdefinierte SQL-Abfrage)]</local-name>
             <parent-name>[Site Admin Permissions]</parent-name>
             <remote-alias>site_id</remote-alias>
-            <ordinal>272</ordinal>
+            <ordinal>273</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6436,7 +6485,7 @@ GROUP BY&#13;
             <local-name>[site_admins_string]</local-name>
             <parent-name>[Site Admin Permissions]</parent-name>
             <remote-alias>site_admins_string</remote-alias>
-            <ordinal>273</ordinal>
+            <ordinal>274</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6454,7 +6503,7 @@ GROUP BY&#13;
             <local-name>[project_id (Benutzerdefinierte SQL-Abfrage)]</local-name>
             <parent-name>[Project Leader Permissions]</parent-name>
             <remote-alias>project_id</remote-alias>
-            <ordinal>275</ordinal>
+            <ordinal>276</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -6467,7 +6516,7 @@ GROUP BY&#13;
             <local-name>[project_leaders_string]</local-name>
             <parent-name>[Project Leader Permissions]</parent-name>
             <remote-alias>project_leaders_string</remote-alias>
-            <ordinal>276</ordinal>
+            <ordinal>277</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6485,7 +6534,7 @@ GROUP BY&#13;
             <local-name>[useable_luid]</local-name>
             <parent-name>[Collections]</parent-name>
             <remote-alias>useable_luid</remote-alias>
-            <ordinal>278</ordinal>
+            <ordinal>279</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6499,7 +6548,7 @@ GROUP BY&#13;
             <local-name>[useable_type]</local-name>
             <parent-name>[Collections]</parent-name>
             <remote-alias>useable_type</remote-alias>
-            <ordinal>279</ordinal>
+            <ordinal>280</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>255</width>
@@ -6516,7 +6565,7 @@ GROUP BY&#13;
             <local-name>[Collection List]</local-name>
             <parent-name>[Collections]</parent-name>
             <remote-alias>Collection List</remote-alias>
-            <ordinal>280</ordinal>
+            <ordinal>281</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6534,7 +6583,7 @@ GROUP BY&#13;
             <local-name>[luid (Custom SQL Query)]</local-name>
             <parent-name>[Collection Statistics]</parent-name>
             <remote-alias>luid</remote-alias>
-            <ordinal>282</ordinal>
+            <ordinal>283</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -6548,7 +6597,7 @@ GROUP BY&#13;
             <local-name>[Collection Workbook Count]</local-name>
             <parent-name>[Collection Statistics]</parent-name>
             <remote-alias>Collection Workbook Count</remote-alias>
-            <ordinal>283</ordinal>
+            <ordinal>284</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -6561,7 +6610,7 @@ GROUP BY&#13;
             <local-name>[Collection View Count]</local-name>
             <parent-name>[Collection Statistics]</parent-name>
             <remote-alias>Collection View Count</remote-alias>
-            <ordinal>284</ordinal>
+            <ordinal>285</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -6574,7 +6623,7 @@ GROUP BY&#13;
             <local-name>[Collection Datasource Count]</local-name>
             <parent-name>[Collection Statistics]</parent-name>
             <remote-alias>Collection Datasource Count</remote-alias>
-            <ordinal>285</ordinal>
+            <ordinal>286</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -6587,7 +6636,7 @@ GROUP BY&#13;
             <local-name>[Collection Flow Count]</local-name>
             <parent-name>[Collection Statistics]</parent-name>
             <remote-alias>Collection Flow Count</remote-alias>
-            <ordinal>286</ordinal>
+            <ordinal>287</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -6600,7 +6649,7 @@ GROUP BY&#13;
             <local-name>[Collection Metric Count]</local-name>
             <parent-name>[Collection Statistics]</parent-name>
             <remote-alias>Collection Metric Count</remote-alias>
-            <ordinal>287</ordinal>
+            <ordinal>288</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -6613,7 +6662,7 @@ GROUP BY&#13;
             <local-name>[Collection Total Item Count]</local-name>
             <parent-name>[Collection Statistics]</parent-name>
             <remote-alias>Collection Total Item Count</remote-alias>
-            <ordinal>288</ordinal>
+            <ordinal>289</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>19</precision>
@@ -7493,8 +7542,6 @@ For workbooks, the number of alert recipients is simply the sum of all alert rec
       <column caption='Custom Subscription Footer' datatype='string' hidden='true' name='[custom_subscription_footer]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[data_alerts_enabled]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[data_change_discovery_enabled]' role='dimension' type='nominal' />
-      <column datatype='boolean' hidden='true' name='[data_orientation_enabled]' role='dimension' type='nominal' />
-      <column datatype='boolean' hidden='true' name='[data_orientation_guest_users_enabled]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[data_story_enabled]' role='dimension' type='nominal' />
       <column aggregation='Sum' caption='Datasource Id' datatype='integer' hidden='true' name='[datasource_id]' role='dimension' type='ordinal' />
       <column caption='Deleted At' datatype='datetime' hidden='true' name='[deleted_at]' role='dimension' type='ordinal' />
@@ -7680,8 +7727,6 @@ Generally used to reference content via the Tableau Server API.
       <column caption='Metrics Level' datatype='integer' hidden='true' name='[metrics_level]' role='measure' type='quantitative' />
       <column datatype='boolean' hidden='true' name='[metrics_snapshotting_enabled]' role='dimension' type='nominal' />
       <column datatype='string' hidden='true' name='[metrics_snapshotting_time_zone]' role='dimension' type='nominal' />
-      <column datatype='boolean' hidden='true' name='[mfa_enforcement_exemption]' role='dimension' type='nominal' />
-      <column datatype='boolean' hidden='true' name='[mfa_enforcement_legacy]' role='dimension' type='nominal' />
       <column datatype='string' hidden='true' name='[mfa_enforcement_status]' role='dimension' type='nominal' />
       <column datatype='boolean' hidden='true' name='[mixed_content_enabled]' role='dimension' type='nominal' />
       <column caption='Site Name' datatype='string' name='[name (sites)]' role='dimension' type='nominal'>
@@ -8357,7 +8402,7 @@ This can be referenced in the User Filter field to allow all Site Admins to acce
           <folder-item name='[Workbook Display Tabs]' type='field' />
         </folder>
       </_.fcp.SchemaViewerObjectModel.true...folders-common>
-      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.809917' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.190083' show-structure='false' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.808264' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.191736' show-structure='false' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
@@ -8483,9 +8528,15 @@ Note that functionally, this is simply an integer value representing the number 
                               </clause>
                               <relation join='left' type='join'>
                                 <clause type='join'>
-                                  <expression op='='>
-                                    <expression op='[Content].[Project Id]' />
-                                    <expression op='[Projects].[project_id]' />
+                                  <expression op='AND'>
+                                    <expression op='='>
+                                      <expression op='[Content].[Project Id]' />
+                                      <expression op='[Projects].[project_id]' />
+                                    </expression>
+                                    <expression op='='>
+                                      <expression op='[Content].[Site Id]' />
+                                      <expression op='[Projects].[project_site_id]' />
+                                    </expression>
                                   </expression>
                                 </clause>
                                 <relation join='left' type='join'>
@@ -9441,17 +9492,19 @@ GROUP BY &#13;
     ts.taggable_id ,&#13;
     ts.taggable_type</relation>
                                 </relation>
-                                <relation connection='postgres.42726.578910810182leaf' name='Projects' type='text'>-- This query grabs project information in the new world of nested foldering!&#13;
+                                <relation connection='postgres.42726.578910810182leaf' name='Projects' type='text'>-- This query grabs project information, along with parent project hierarchy information&#13;
+&#13;
 &#13;
 WITH RECURSIVE project_hierarchy AS (&#13;
     SELECT&#13;
         p.name                                          AS project_name ,&#13;
         p.id                                            AS project_id ,&#13;
         p.luid                                          AS project_luid ,&#13;
+        p.site_id                                       AS project_site_id ,&#13;
         su.friendly_name                                AS project_owner_friendly_name ,&#13;
         su.name                                         AS project_owner_system_name ,&#13;
         su.email                                        AS project_owner_email ,&#13;
-        p.parent_project_id ,&#13;
+        pc.project_id                                   AS parent_project_id ,&#13;
         CAST(NULL as varchar)                           AS parent_project_name ,&#13;
         CAST(NULL as varchar)                           AS parent_project_owner_friendly_name ,&#13;
         CAST(NULL as varchar)                           AS parent_project_owner_system_name ,&#13;
@@ -9463,16 +9516,21 @@ WITH RECURSIVE project_hierarchy AS (&#13;
         p.controlling_permissions_project_id ,&#13;
         p.nested_projects_permissions_included&#13;
     FROM projects p&#13;
+        LEFT JOIN projects_contents pc&#13;
+            ON p.id = pc.content_id&#13;
+                AND p.site_id = pc.site_id&#13;
+                AND pc.content_type = &apos;project&apos;&#13;
         LEFT JOIN users u&#13;
             ON p.owner_id = u.id&#13;
         LEFT JOIN system_users su&#13;
             ON u.system_user_id = su.id&#13;
-    WHERE p.parent_project_id IS NULL&#13;
+    WHERE pc.project_id IS NULL&#13;
     UNION ALL&#13;
     SELECT&#13;
         p.name                                          AS project_name ,&#13;
         p.id                                            AS project_id ,&#13;
         p.luid                                          AS project_luid ,&#13;
+        p.site_id                                       AS project_site_id ,&#13;
         su.friendly_name                                AS project_owner_friendly_name ,&#13;
         su.name                                         AS project_owner_system_name ,&#13;
         su.email                                        AS project_owner_email ,&#13;
@@ -9492,12 +9550,16 @@ WITH RECURSIVE project_hierarchy AS (&#13;
         p.controlling_permissions_project_id ,&#13;
         p.nested_projects_permissions_included&#13;
     FROM projects p&#13;
+        LEFT JOIN projects_contents pc&#13;
+            ON p.id = pc.content_id&#13;
+                AND p.site_id = pc.site_id&#13;
+                AND pc.content_type = &apos;project&apos;&#13;
         LEFT JOIN users u&#13;
             ON p.owner_id = u.id&#13;
         LEFT JOIN system_users su&#13;
             ON u.system_user_id = su.id&#13;
         INNER JOIN project_hierarchy ph&#13;
-            ON ph.project_id = p.parent_project_id&#13;
+            ON ph.project_id = pc.project_id&#13;
 )&#13;
 &#13;
 SELECT *&#13;
