@@ -57,9 +57,9 @@ Use this chart to determine what version of each data source you need, based on 
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>03.01</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_04.01.twb"
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_content/ts_content_04.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>04.01</span></a></td>
+  0'>04.02</span></a></td>
  </tr>
  <tr height=20 style='height:15.0pt'>
   <td height=20 class=xl66 style='height:15.0pt'>ts_data_connections</td>
