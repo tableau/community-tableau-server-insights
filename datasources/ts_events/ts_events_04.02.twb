@@ -128,7 +128,7 @@ Note that functionally, this is simply an integer value representing the number 
       <connection class='federated'>
         <named-connections>
           <named-connection caption='TS Events' name='TS Events_9.3leaf'>
-            <connection authentication='username-password' class='postgres' ctype-leave-untrimmed='true' dbname='workgroup' odbc-native-protocol='yes' one-time-sql='' port='8060' server='mac-dr-pub.tableautools.com' server-oauth='' server-userid='691' username='readonly' workgroup-auth-mode='prompt' />
+            <connection authentication='username-password' class='postgres' ctype-leave-untrimmed='true' dbname='workgroup' odbc-native-protocol='yes' one-time-sql='' port='8060' server='your-repository-server' server-oauth='' server-userid='691' username='readonly' workgroup-auth-mode='prompt' />
           </named-connection>
         </named-connections>
         <relation join='left' type='join'>
