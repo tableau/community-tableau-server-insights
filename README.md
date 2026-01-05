@@ -115,9 +115,9 @@ Use this chart to determine what version of each data source you need, based on 
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
   0'>03.01</span></a></td>
   <td class=xl68 style='border-top:none'><a
-  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_04.01.twb"
+  href="https://raw.githubusercontent.com/tableau/community-tableau-server-insights/master/datasources/ts_web_requests/ts_web_requests_04.02.twb"
   target="_parent"><span style='font-family:Arial, sans-serif;mso-font-charset:
-  0'>04.01</span></a></td>
+  0'>04.02</span></a></td>
  </tr>
  <![endif]>
 </table>
